@@ -16,15 +16,15 @@ In order to make the course as useful as possible to the most people, please fil
 ## Day 2
 
 TGrep2 tutorial -- saerch patterns based on regular expressions
-	- search patterns used in Degen 2015
-	- formulate search patterns to find interesting verbs and their contexts
+- search patterns used in Degen 2015
+- formulate search patterns to find interesting verbs and their contexts
 
 ## Day 3
 
 TDTlite tutorial -- building a database
-	- walk through generating database used in Degen 2015
-	- useful types of information to extract: lexical/syntactic context, word frequencies, ngram frequencies, word lengths, phonology, prosody, social information
-	- extending/annotating the database with crowd-sourced pragmatic judgments
+- walk through generating database used in Degen 2015
+- useful types of information to extract: lexical/syntactic context, word frequencies, ngram frequencies, word lengths, phonology, prosody, social information
+- extending/annotating the database with crowd-sourced pragmatic judgments
 
 R data analysis/visualization tutorial?
 
