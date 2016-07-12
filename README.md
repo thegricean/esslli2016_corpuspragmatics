@@ -1,10 +1,8 @@
-# Corpus Methods for Research in Pragmatics
-
 In order to make the course as useful as possible to the most people, please fill out this survey!
 
-## Syllabus
+# Syllabus
 
-### Day 1
+## Day 1
 
 - Why use corpora (in Linguistics generally, in Pragmatics in particular)?
 
@@ -21,7 +19,7 @@ In order to make the course as useful as possible to the most people, please fil
 - Intro to class project domain: projection behavior of (non-/semi-)factive verbs
 
 
-### Day 2
+## Day 2
 
 - TGrep2 tutorial -- saerch patterns based on regular expressions
 
@@ -29,7 +27,7 @@ In order to make the course as useful as possible to the most people, please fil
 
 	- formulate search patterns to find interesting verbs and their contexts
 
-### Day 3
+## Day 3
 
 - TDTlite tutorial -- building a database
 
@@ -41,16 +39,16 @@ In order to make the course as useful as possible to the most people, please fil
 
 - R data analysis/visualization tutorial?
 
-### Day 4
+## Day 4
 
 Build a preliminary database of verbs
 
-### Day 5
+## Day 5
 
 Discussion, wrapup, issues, further directions, buffer
 
 
-## Readings/resources
+# Readings/resources
 
 - de Marneffe & Potts
 - Gelman & Hill
