@@ -4,19 +4,19 @@ In order to make the course as useful as possible to the most people, please fil
 
 ## Day 1
 
-- Why use corpora (in Linguistics generally, in Pragmatics in particular)?
+1. Why use corpora (in Linguistics generally, in Pragmatics in particular)?
 
-- Types of questions one can and cannot answer using corpora
+2. Types of questions one can and cannot answer using corpora
 
-- Relation to other kinds of data (introspection, controlled psycholinguistic experiments in the lab and on the web)
+3. Relation to other kinds of data (introspection, controlled psycholinguistic experiments in the lab and on the web)
 
-- Overview of general corpus features:
+4. Overview of general corpus features:
 
 	- size, genre, modality (spoken, written), accessibility
 
 	- annotation: POS, syntax, reference, information status, prosody, social meta-information about speakers (e.g., gender, dialect, education level)
 
-- Intro to class project domain: projection behavior of (non-/semi-)factive verbs
+5. Intro to class project domain: projection behavior of (non-/semi-)factive verbs
 
 
 ## Day 2
