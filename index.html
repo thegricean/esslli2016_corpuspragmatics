@@ -31,71 +31,78 @@
         <hr>
 
         <section id="main_content">
-          <p>In order to make the course as useful as possible to the most people, please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform">this survey</a> !</p>
+          <p>This 5-day course is part of <a href="http://esslli2016.unibz.it/">ESSLLI 2016</a>. It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.</p>
+
+<p>In order to make the course as useful as possible to the greatest number of participants, <strong>please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform">this survey</a> by August 9</strong>!</p>
+
+<h1>
+<a id="lecturer" class="anchor" href="#lecturer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecturer</h1>
+
+<p><a href="https://sites.google.com/site/judithdegen/">Judith Degen</a> -- <em><a href="mailto:jdegen@stanford.edu">jdegen@stanford.edu</a></em></p>
+
+<h1>
+<a id="course-description" class="anchor" href="#course-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Course description</h1>
+
+<p>Traditionally, the primary source of data in pragmatics has been researchers’ intuitions about utterance meanings. However, the small numbers of introspective judgments about examples, hand-selected by researchers who themselves provide these judgments, introduces bias into the  phenomena under investigation.  The recently emerging use of experimental methods for probing linguistically untrained  language users’ interpretations has ameliorated the bias introduced by small numbers of judgments. It cannot, however, remove item bias: researchers  artificially construct the stimuli used in experiments. Fortunately, studying corpora of naturally occurring language can reduce item bias. Corpora provide naturally occurring utterances that can be used in tandem with platforms like Mechanical Turk to provide large-scale crowd-sourced interpretations of these utterances, thereby allowing for constructing large databases of different types of meanings (e.g., implicatures) in context. The course will introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.</p>
 
 <h1>
 <a id="syllabus" class="anchor" href="#syllabus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syllabus</h1>
 
-<h2>
-<a id="day-1" class="anchor" href="#day-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Day 1</h2>
-
-<ol>
-<li>Why use corpora (in Linguistics generally, in Pragmatics in particular)?</li>
-<li>Types of questions one can and cannot answer using corpora</li>
-<li>Relation to other kinds of data (introspection, controlled psycholinguistic experiments in the lab and on the web)</li>
-<li>Overview of general corpus features:
-
-<ul>
-<li>size, genre, modality (spoken, written), accessibility</li>
-<li>annotation: POS, syntax, reference, information status, prosody, social meta-information about speakers (e.g., gender, dialect, education level)</li>
-</ul>
-</li>
-<li>Intro to class project domain: projection behavior of (non-/semi-)factive verbs</li>
-</ol>
-
-<h2>
-<a id="day-2" class="anchor" href="#day-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Day 2</h2>
-
-<p>TGrep2 tutorial -- saerch patterns based on regular expressions</p>
-
-<ul>
-<li>search patterns used in Degen 2015</li>
-<li>formulate search patterns to find interesting verbs and their contexts</li>
-</ul>
-
-<h2>
-<a id="day-3" class="anchor" href="#day-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Day 3</h2>
-
-<p>TDTlite tutorial -- building a database</p>
-
-<ul>
-<li>walk through generating database used in Degen 2015</li>
-<li>useful types of information to extract: lexical/syntactic context, word frequencies, ngram frequencies, word lengths, phonology, prosody, social information</li>
-<li>extending/annotating the database with crowd-sourced pragmatic judgments</li>
-</ul>
-
-<p>R data analysis/visualization tutorial?</p>
-
-<h2>
-<a id="day-4" class="anchor" href="#day-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Day 4</h2>
-
-<p>Build a preliminary database of verbs</p>
-
-<h2>
-<a id="day-5" class="anchor" href="#day-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Day 5</h2>
-
-<p>Discussion, wrapup, issues, further directions, buffer</p>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>What</th>
+<th>Reading(s) / resources</th>
+<th>Slides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)</td>
+<td>
+<a href="http://web.stanford.edu/%7Ecgpotts/papers/demarneffe-potts-lingann.pdf">Potts &amp; de Marneffe 2014</a>; <a href="readings/tonhauser2013.pdf">Tonhauser et al 2013</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions</td>
+<td>
+<a href="https://tedlab.mit.edu/%7Edr/Tgrep2/">TGrep2</a>; <a href="https://tedlab.mit.edu/%7Edr/Tgrep2/tgrep2.pdf">TGrep2 User Manual</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures</td>
+<td>
+<a href="/readings/degen2015.pdf">Degen 2015</a>; <a href="https://github.com/thegricean/TDTlite">TDTlite</a>; <a href="https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf">TDTlite User Manual</a>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>Build a database of (non-/semi-)factive verbs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>Discussion of results; reflection &amp; discussion</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 <h1>
-<a id="readingsresources" class="anchor" href="#readingsresources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Readings/resources</h1>
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other resources</h1>
 
 <ul>
-<li>de Marneffe &amp; Potts</li>
-<li>Gelman &amp; Hill</li>
-<li>Degen 2015</li>
-<li>Gries</li>
-<li>TDT User Manual</li>
-<li>TGrep2 tutorial</li>
+<li>Stefan Gries's book <a href="https://www.routledge.com/Quantitative-Corpus-Linguistics-with-R-A-Practical-Introduction-2nd-Edition/Gries/p/book/9781138816275">Quantitative Corpus Linguistics with R</a>
+</li>
 </ul>
         </section>
 
