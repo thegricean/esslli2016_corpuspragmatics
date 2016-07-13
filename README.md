@@ -14,8 +14,8 @@ Traditionally, the primary source of data in pragmatics has been researchers’ 
 
 When        | What               | Reading(s) / resources | Slides
 ---------- | ------------------ | ---------------------- | -------
-Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)| [Potts & de Marneffe 2014](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf); [Tonhauser et al 2013](readings/tonhauser2013.pdf) |
-Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions |  |
+Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)| [Potts & de Marneffe 2014](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf); [Simons et al, to appear](readings/BestQuestion2016.pdf) |
+Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions | [Beaver 2010](readings/beaver2010.pdf) |
 Wednesday | TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [Degen 2015](/readings/degen2015.pdf) |
 Thursday | Build a database of (non-/semi-)factive verbs | |
 Friday | Discussion of results; reflection | |
