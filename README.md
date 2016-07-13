@@ -12,6 +12,10 @@ Traditionally, the primary source of data in pragmatics has been researchers’ 
 
 # Syllabus
 
-Day        | Plan               | Reading(s) / resources | Slides
+When        | What               | Reading(s) / resources | Slides
 ---------- | ------------------ | ---------------------- | -------
-Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro | [\[Potts & de Marneffe 2014\]](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf) |
+Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)| [Potts & de Marneffe 2014](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf); [Tonhauser et al 2013](readings/tonhauser2013.pdf) |
+Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions | [TGrep2](https://tedlab.mit.edu/~dr/Tgrep2/); [TGrep2 User Manual](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf) |
+Wednesday | TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [TDTlite](https://github.com/thegricean/TDTlite) and the [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf) |
+Thursday | Build a database of (non-/semi-)factive verbs | |
+Friday | Discussion of results; reflection & discussion | |
