@@ -1,4 +1,12 @@
-In order to make the course as useful as possible to the most people, please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform) !
+This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.
+
+In order to make the course as useful as possible to the greatest number of participants, please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform) *by August 9*!
+
+# Lecturer
+
+[Judith Degen](https://sites.google.com/site/judithdegen/)
+
+*Email:* jdegen@stanford.edu
 
 # Course description
 
