@@ -4,8 +4,7 @@ In order to make the course as useful as possible to the greatest number of part
 
 # Lecturer
 
-[Judith Degen](https://sites.google.com/site/judithdegen/)
-jdegen@stanford.edu
+[Judith Degen](https://sites.google.com/site/judithdegen/) -- *jdegen@stanford.edu*
 
 # Course description
 
