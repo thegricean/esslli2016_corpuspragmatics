@@ -1,4 +1,4 @@
-In order to make the course as useful as possible to the most people, please fill out this survey!
+In order to make the course as useful as possible to the most people, please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform)!
 
 # Syllabus
 
