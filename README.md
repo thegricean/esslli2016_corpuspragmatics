@@ -15,11 +15,15 @@ Traditionally, the primary source of data in pragmatics has been researchers’ 
 When        | What               | Reading(s) / resources | Slides
 ---------- | ------------------ | ---------------------- | -------
 Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)| [Potts & de Marneffe 2014](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf); [Tonhauser et al 2013](readings/tonhauser2013.pdf) |
-Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions | [TGrep2](https://tedlab.mit.edu/~dr/Tgrep2/); [TGrep2 User Manual](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf) |
-Wednesday | TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [Degen 2015](/readings/degen2015.pdf); [TDTlite](https://github.com/thegricean/TDTlite); [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf) |
+Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions |  |
+Wednesday | TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [Degen 2015](/readings/degen2015.pdf) |
 Thursday | Build a database of (non-/semi-)factive verbs | |
-Friday | Discussion of results; reflection & discussion | |
+Friday | Discussion of results; reflection | |
 
-# Other resources
+# Resources
 
+- [TGrep2](https://tedlab.mit.edu/~dr/Tgrep2/) and the [TGrep2 User Manual](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf)
+- [TDTlite](https://github.com/thegricean/TDTlite) on GitHub
+- [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf)
 - Stefan Gries's book [Quantitative Corpus Linguistics with R](https://www.routledge.com/Quantitative-Corpus-Linguistics-with-R-A-Practical-Introduction-2nd-Edition/Gries/p/book/9781138816275)
+- [Linguistic Data Consortium](https://www.ldc.upenn.edu/language-resources/data)
