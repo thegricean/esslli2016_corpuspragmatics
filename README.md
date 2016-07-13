@@ -46,4 +46,4 @@ Discussion, wrapup, issues, further directions, buffer
 - de Marneffe, Marie-Catherine and Christopher Potts (2014). Developing linguistic theories using annotated corpora. To appear in Nancy Ide and James Pustejovsky, eds., The Handbook of Linguistic Annotation. Berlin: Springer. [pdf](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf)
 - Degen, J. (2015). Investigating the distribution of some (but not all) implicatures using corpora and web-based methods. Semantics and Pragmatics, 8 (11), pp. 1-55. [pdf](http://semprag.org/article/view/sp.8.11)
 - [TGrep2](https://tedlab.mit.edu/~dr/Tgrep2/) and the TGrep2 User Manual [pdf](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf)
-- [TDTlite](https://github.com/thegricean/TDTlite) and the TDTlite User Manual [\[pdf\](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf)
+- [TDTlite](https://github.com/thegricean/TDTlite) and the TDTlite User Manual [\[pdf\]](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf)
