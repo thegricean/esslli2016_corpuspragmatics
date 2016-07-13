@@ -12,7 +12,6 @@ Traditionally, the primary source of data in pragmatics has been researchers’ 
 
 # Syllabus
 
-Day        | Plan               | Reading(s) / resources
----------- | ------------------ | ----------------
-Monday     | 1. Why use corpora (in Linguistics generally, in Pragmatics in particular)?
-2. Types of questions one can and cannot answer using corpora | bla
+Day        | Plan               | Reading(s) / resources | Slides
+---------- | ------------------ | ---------------------- | -------
+Monday     | Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro | [\[Potts & de Marneffe 2014\]](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf) |
