@@ -12,44 +12,7 @@ Traditionally, the primary source of data in pragmatics has been researchers’ 
 
 # Syllabus
 
-## Day 1
-
-1. Why use corpora (in Linguistics generally, in Pragmatics in particular)?
-2. Types of questions one can and cannot answer using corpora
-3. Relation to other kinds of data (introspection, controlled psycholinguistic experiments in the lab and on the web)
-4. Overview of general corpus features:
-	- size, genre, modality (spoken, written), accessibility
-	- annotation: POS, syntax, reference, information status, prosody, social meta-information about speakers (e.g., gender, dialect, education level)
-5. Intro to class project domain: projection behavior of (non-/semi-)factive verbs
-
-
-## Day 2
-
-TGrep2 tutorial -- saerch patterns based on regular expressions
-- search patterns used in Degen 2015
-- formulate search patterns to find interesting verbs and their contexts
-
-## Day 3
-
-TDTlite tutorial -- building a database
-- walk through generating database used in Degen 2015
-- useful types of information to extract: lexical/syntactic context, word frequencies, ngram frequencies, word lengths, phonology, prosody, social information
-- extending/annotating the database with crowd-sourced pragmatic judgments
-
-R data analysis/visualization tutorial?
-
-## Day 4
-
-Build a preliminary database of verbs
-
-## Day 5
-
-Discussion, wrapup, issues, further directions, buffer
-
-
-# Readings/resources
-
-- de Marneffe, Marie-Catherine and Christopher Potts (2014). Developing linguistic theories using annotated corpora. To appear in Nancy Ide and James Pustejovsky, eds., The Handbook of Linguistic Annotation. Berlin: Springer. [\[pdf\]](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf)
-- Degen, J. (2015). Investigating the distribution of some (but not all) implicatures using corpora and web-based methods. Semantics and Pragmatics, 8 (11), pp. 1-55. [\[pdf\]](http://semprag.org/article/view/sp.8.11)
-- [TGrep2](https://tedlab.mit.edu/~dr/Tgrep2/) and the TGrep2 User Manual [\[pdf\]](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf)
-- [TDTlite](https://github.com/thegricean/TDTlite) and the TDTlite User Manual [\[pdf\]](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf)
+Day        | Plan               | Reading(s) / resources
+---------- | ------------------ | ----------------
+Monday     | 1. Why use corpora (in Linguistics generally, in Pragmatics in particular)?
+2. Types of questions one can and cannot answer using corpora | bla
