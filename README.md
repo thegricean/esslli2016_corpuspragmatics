@@ -20,6 +20,7 @@ The course has no official prerequisites. However, the more programming experien
 We will be making heavy use of the UNIX terminal for navigating directories and running the corpus search tools. Knowing how to use an editor from the terminal will be important. (I'll be using vim but I won't get in the way of anyone looking to use emacs or something even more outlandish). We'll use R and ggplot later in the course.
 
 If you would like to get caught up on the basics of using these tools, I recommend the following tutorials (in order of priority):
+
 1. [UNIX tutorial for beginners](http://www.ee.surrey.ac.uk/Teaching/Unix/) -- complete at least the first three tutorials
 2. [Ryan's vi tutorial](http://ryanstutorials.net/linuxtutorial/vi.php) and a [cheat sheet](http://www.lagmonster.org/docs/vi.html) of useful vi commands
 3. [datacamp](https://www.datacamp.com/) for learning R
