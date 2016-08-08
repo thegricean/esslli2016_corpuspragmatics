@@ -1,6 +1,6 @@
 This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.
 
-In order to make the course as useful as possible to the greatest number of participants, **please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform) by August 9**!
+In order to make the course as useful as possible to the greatest number of participants, **please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform) by August 12**!
 
 The course will have a hands-on component in order to provide participants with the opportunity to get their hands dirty with actual data and tools for handling that data. To minimize the amount of software you will need to install on your own laptops, the kind tech support team is providing access to a virtual machine pre-configured with all the necessary software. In order to access the virtual machine, you will only need to install VMWare Horizon (available for most operating systems). If you want to take advantage of this part of the course (recommended!), please follow the [installation instructions](https://wiki.inf.unibz.it/public/vdi_labs#your_pcmacandriodioslinux_device) and bring your laptop to class. 
 
