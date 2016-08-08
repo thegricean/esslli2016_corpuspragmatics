@@ -21,7 +21,9 @@
     <section class="main-content">
       <p>This 5-day course is part of <a href="http://esslli2016.unibz.it/">ESSLLI 2016</a>. It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.</p>
 
-<p>In order to make the course as useful as possible to the greatest number of participants, <strong>please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform">this survey</a> by August 9</strong>!</p>
+<p>In order to make the course as useful as possible to the greatest number of participants, <strong>please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform">this survey</a> by August 12</strong>!</p>
+
+<p>The course will have a hands-on component in order to provide participants with the opportunity to get their hands dirty with actual data and tools for handling that data. To minimize the amount of software you will need to install on your own laptops, the kind tech support team is providing access to a virtual machine pre-configured with all the necessary software. In order to access the virtual machine, you will only need to install VMWare Horizon (available for most operating systems). If you want to take advantage of this part of the course (recommended!), please follow the <a href="https://wiki.inf.unibz.it/public/vdi_labs#your_pcmacandriodioslinux_device">installation instructions</a> and bring your laptop to class. You will receive your login credentials in an email from the ESSLLI organizers.</p>
 
 <h1>
 <a id="lecturer" class="anchor" href="#lecturer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lecturer</h1>
@@ -31,10 +33,29 @@
 <h1>
 <a id="course-description" class="anchor" href="#course-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Course description</h1>
 
-<p>Traditionally, the primary source of data in pragmatics has been researchers’ intuitions about utterance meanings. However, the small numbers of introspective judgments about examples, hand-selected by researchers who themselves provide these judgments, introduces bias into the  phenomena under investigation.  The recently emerging use of experimental methods for probing linguistically untrained  language users’ interpretations has ameliorated the bias introduced by small numbers of judgments. It cannot, however, remove item bias: researchers  artificially construct the stimuli used in experiments. Fortunately, studying corpora of naturally occurring language can reduce item bias. Corpora provide naturally occurring utterances that can be used in tandem with platforms like Mechanical Turk to provide large-scale crowd-sourced interpretations of these utterances, thereby allowing for constructing large databases of different types of meanings (e.g., implicatures) in context. The course will introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.</p>
+<p>Traditionally, the primary source of data in pragmatics has been researchers’ intuitions about utterance meanings. However, the small numbers of introspective judgments about examples, hand-selected by researchers who themselves provide these judgments, introduces bias into the  phenomena under investigation.  The recently emerging use of experimental methods for probing linguistically untrained  language users’ interpretations has ameliorated the bias introduced by small numbers of judgments. It cannot, however, remove item bias: researchers  artificially construct the stimuli used in experiments. Fortunately, studying corpora of naturally occurring language can reduce item bias. Corpora provide naturally occurring utterances that can be used in tandem with platforms like Mechanical Turk to provide large-scale crowd-sourced interpretations of these utterances, thereby allowing for constructing large databases of different types of meanings (e.g., implicatures) in context. </p>
+
+<p>In order to not only introduce course participants to the use of corpora of naturally occurring language for research in semantics/pragmatics but also equip you with practical skills for conducting your own research in this area, the course will contain a substantial hands-on component. We will use tools for searching syntactically parsed corpora (<a href="https://tedlab.mit.edu/%7Edr/Tgrep2/">tgrep2</a>, <a href="https://github.com/thegricean/TDTlite/">TDTlite</a>) as well as tools for analyzing and visualizing data (<a href="https://www.r-project.org/">R</a>, in particular the <a href="https://cran.r-project.org/web/packages/lme4/lme4.pdf">lme4</a> and <a href="http://ggplot2.org/">ggplot2</a> packages). </p>
 
 <h1>
-<a id="highly-preliminary-syllabus" class="anchor" href="#highly-preliminary-syllabus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Highly preliminary syllabus</h1>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h1>
+
+<p>The course has no official prerequisites. However, the more programming experience you have, the easier it will be to follow along. Remember to fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform">the survey</a> to increase the probability of the course pace aligning with your needs.
+We will be making heavy use of the UNIX terminal for navigating directories and running the corpus search tools. Knowing how to use an editor from the terminal will be important. (I'll be using vim but I won't get in the way of anyone looking to use emacs or something even more outlandish). We'll use R and ggplot later in the course.</p>
+
+<p>If you would like to get caught up on the basics of using these tools, I recommend the following tutorials (in order of priority):</p>
+
+<ol>
+<li>
+<a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">UNIX tutorial for beginners</a> -- complete at least the first three tutorials</li>
+<li>
+<a href="http://ryanstutorials.net/linuxtutorial/vi.php">Ryan's vi tutorial</a> and a <a href="http://www.lagmonster.org/docs/vi.html">cheat sheet</a> of useful vi commands</li>
+<li>
+<a href="https://www.datacamp.com/">datacamp</a> for learning R</li>
+</ol>
+
+<h1>
+<a id="preliminary-syllabus" class="anchor" href="#preliminary-syllabus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preliminary syllabus</h1>
 
 <table>
 <thead>
@@ -48,27 +69,29 @@
 <tbody>
 <tr>
 <td>Monday</td>
-<td>Introduction: utility of corpora for research in semantics/pragmatics; annotation; search; hands-on project intro (projection behavior of (non-/semi-)factive verbs)</td>
+<td>Introduction: utility of corpora for research in semantics/pragmatics; a practical example: variation in scalar implicature strength</td>
 <td>
-<a href="http://web.stanford.edu/%7Ecgpotts/papers/demarneffe-potts-lingann.pdf">Potts &amp; de Marneffe 2014</a>; <a href="readings/BestQuestion2016.pdf">Simons et al, to appear</a>
+<a href="http://web.stanford.edu/%7Ecgpotts/papers/demarneffe-potts-lingann.pdf">Potts &amp; de Marneffe 2014</a>; <a href="http://semprag.org/article/view/sp.8.11">Degen 2015</a>
 </td>
 <td></td>
 </tr>
 <tr>
 <td>Tuesday</td>
-<td>TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions</td>
-<td><a href="readings/beaver2010.pdf">Beaver 2010</a></td>
+<td>TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions; hands-on project intro (projection behavior of (non-/semi-)factive verbs)</td>
+<td>
+<a href="https://www.researchgate.net/publication/2840852_Have_you_noticed_that_your_Belly_Button_Lint_colour_is_related_to_the_colour_of_your_clothing">Beaver 2010</a>; <a href="http://www.cmu.edu/dietrich/philosophy/docs/simons/BestQuestion-Resubmission-FormattedForPosting-6-8-15.pdf">Simons et al, to appear</a>; <a href="https://tedlab.mit.edu/%7Edr/Tgrep2/tgrep2.pdf">TGrep2 User Manual</a>
+</td>
 <td></td>
 </tr>
 <tr>
 <td>Wednesday</td>
 <td>TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures</td>
-<td><a href="/readings/degen2015.pdf">Degen 2015</a></td>
+<td><a href="https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf">TDTlite User Manual</a></td>
 <td></td>
 </tr>
 <tr>
 <td>Thursday</td>
-<td>Build a database of (non-/semi-)factive verbs</td>
+<td>Build an annotated database of factive verbs</td>
 <td></td>
 <td></td>
 </tr>
@@ -91,6 +114,8 @@
 <li>
 <a href="https://github.com/thegricean/TDTlite">TDTlite</a> on GitHub</li>
 <li><a href="https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf">TDTlite User Manual</a></li>
+<li>The <a href="http://cwb.sourceforge.net/">IMS Open Corpus Workbench</a>
+</li>
 <li>Stefan Gries's book <a href="https://www.routledge.com/Quantitative-Corpus-Linguistics-with-R-A-Practical-Introduction-2nd-Edition/Gries/p/book/9781138816275">Quantitative Corpus Linguistics with R</a>
 </li>
 <li><a href="https://www.ldc.upenn.edu/language-resources/data">Linguistic Data Consortium</a></li>
