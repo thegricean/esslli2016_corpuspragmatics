@@ -67,21 +67,30 @@ The output looks somewhat messy because tgrep2 by default returns the syntactic 
 $ tgrep2 -afl "/^NP/ << some " | more
 ```
 
-In words, this pattern returns all nodes that begin with NP (which will match both nodes labeled simply "NP", but also nodes labeled "NP-SBJ" or "NP-PRD") and that dominate "some".
+In words, this pattern states: return all nodes that begin with NP (which will match both nodes labeled simply "NP", but also nodes labeled "NP-SBJ" or "NP-PRD") and that dominate "some".
 
 If we don't want to see the syntactic structure at all, but only the terminals, we can use the -t option instead:
 
 ```
 $ tgrep2 -aft "/^NP/ << some " | more
-```
+``` 
 
-CONTINUE HERE
-
- The asterisk stands for a generic node. "@" (in certain environments "!") stands for negation. In words, the pattern states: find all nodes that dominate "some" and that are themselves not dominated by any other node. 
+Let's say we want to see the entire sentence that contains the "some"-NP:
 
 ```
 $ tgrep2 -af "* << some @> *" | more
 ```
+
+The asterisk stands for a generic node. "@" (in certain environments "!") stands for negation. In words, the pattern states: find all nodes that dominate "some" and that are themselves not dominated by any other node; that is, find the top-level sentence node. 
+
+If we want to see the number of matches instead of the actual output:
+
+```
+$ tgrep2 -af "* << some @> *" | wc -l
+```
+
+Note that if used in conjunction with the tgrep2 -l option, this won't return the actual number of matches, because wc -l counts lines and the tgrep2 -l option splits a match up into multiple lines to display pretty syntax.
+
 
 
 si example
