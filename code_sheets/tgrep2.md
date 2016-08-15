@@ -21,3 +21,14 @@ $ echo $TDT_DATABASES
 /home/shared/esslli/corpus_pragmatics/corpora/databases
 ```
 
+Create a directory for saving tgrep2 output to and name it tgrep2_playground (or anything else you like). Check that it exists. Change into it. Check your current path (location).
+
+```
+$ mkdir tgrep2_playground
+$ ls
+$ cd tgrep2_playground
+$ pwd
+/home/others/esslliXXX/tgrep2_playground
+```
+
+## Basic TGrep2 queries
