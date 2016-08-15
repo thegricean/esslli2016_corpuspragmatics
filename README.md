@@ -2,7 +2,7 @@ This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims
 
 In order to make the course as useful as possible to the greatest number of participants, **please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeEFAbBObNEkY4VoCX4Vbj4D-6NwhCMXoyN3GnVhe6Jv4srtg/viewform) by August 12**!
 
-The course will have a hands-on component in order to provide participants with the opportunity to get their hands dirty with actual data and tools for handling that data. To minimize the amount of software you will need to install on your own laptops, the kind tech support team is providing access to a virtual machine pre-configured with all the necessary software. In order to access the virtual machine, you will only need to install VMWare Horizon (available for most operating systems). If you want to take advantage of this part of the course (recommended!), please follow the [installation instructions](https://wiki.inf.unibz.it/public/vdi_labs#your_pcmacandriodioslinux_device) and bring your laptop to class. You will receive your login credentials in an email from the ESSLLI organizers.
+The course will have a hands-on component in order to provide participants with the opportunity to get their hands dirty with actual data and tools for handling that data. To minimize the amount of software you will need to install on your own laptops, the kind tech support team is providing access to a virtual machine pre-configured with all the necessary software. In order to access the virtual machine, you will only need to install VMWare Horizon (available for most operating systems). If you want to take advantage of this part of the course (recommended!), please follow the [installation instructions](https://wiki.inf.unibz.it/public/vdi_labs#your_pcmacandriodioslinux_device) and bring your laptop to class. You will receive your login credentials upon registration.
 
 # Lecturer
 
@@ -31,9 +31,9 @@ When        | What               | Reading(s) / resources | Slides
 ---------- | ------------------ | ---------------------- | -------
 Monday     | Introduction: utility of corpora for research in semantics/pragmatics; a practical example: variation in scalar implicature strength| [Potts & de Marneffe 2014](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf); [Degen 2015](http://semprag.org/article/view/sp.8.11) |
 Tuesday | TGrep2 tutorial: search corpora for syntactic patterns based on regular expressions; hands-on project intro (projection behavior of (non-/semi-)factive verbs) | [Beaver 2010](https://www.researchgate.net/publication/2840852_Have_you_noticed_that_your_Belly_Button_Lint_colour_is_related_to_the_colour_of_your_clothing); [Simons et al, to appear](http://www.cmu.edu/dietrich/philosophy/docs/simons/BestQuestion-Resubmission-FormattedForPosting-6-8-15.pdf); [TGrep2 User Manual](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf) |
-Wednesday | TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf) |
-Thursday | Build an annotated database of factive verbs | |
-Friday | Discussion of results; reflection | |
+Wednesday | Develop patterns for extracting factive verbs; TDTlite tutorial: building an annotated database of naturally occurring scalar implicatures | [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf) |
+Thursday | Build an annotated database of factive verbs with TDTlite; use of MTurk for database annotation | [Gibson 2011](https://github.com/thegricean/esslli2016_corpuspragmatics/blob/master/readings/gibson2011.pdf); [Tonhauser 2016](https://github.com/thegricean/esslli2016_corpuspragmatics/blob/master/readings/tonhauser-salt26.pdf)|
+Friday | Analyzing/visualizing corpus data; discussion of results; reflection | |
 
 # Resources
 
