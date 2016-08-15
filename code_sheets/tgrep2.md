@@ -31,4 +31,59 @@ $ pwd
 /home/others/esslliXXX/tgrep2_playground
 ```
 
+Find out what corpora can be used with TGrep2. All files that contain 't2c' in their name are tgrep2able corpora.
+
+```
+$ ls $TGREP2ABLE
+```
+
+If there is a particular corpus that you want to use as a default, set a default `TGREP2_CORPUS`. Currently, the Switchboard is set to be the default corpus. This allows you to not have to use the '-c' option and specify a corpus directly in the tgrep2 command.
+
 ## Basic TGrep2 queries
+
+Let's find all the instances of "some". We use the options -a and -f so that all subtrees matching one or more patterns will be reported, but each subtree will only be reported once.
+
+```
+$ tgrep2 -af "some"
+```
+
+In order for the output to not be written to standard out, which doesn't allow us to scroll through in an organized way and clutters the window, we use the pipe ("|") and "more" command in the following way:
+
+```
+$ tgrep2 -af "some" | more
+```
+
+Scroll down with the arrow or space bar keys. Press `q` to get back to the prompt.
+
+So far, this isn't very exciting -- all that's returned is the word "some". If we're interested in seeing the content around it, we need to make the head node of the match (the left-most node) something that spans "some". For example, if we want to extract the NP that "some" is embedded in, we use regular expression syntax in the following way:
+
+```
+$ tgrep2 -af "/^NP/ << some " | more
+```
+
+The output looks somewhat messy because tgrep2 by default returns the syntactic structure of the tree. There are two ways of dealing with this. If we want to see the structure in a more appealing way, we use the -l option:
+
+```
+$ tgrep2 -afl "/^NP/ << some " | more
+```
+
+In words, this pattern returns all nodes that begin with NP (which will match both nodes labeled simply "NP", but also nodes labeled "NP-SBJ" or "NP-PRD") and that dominate "some".
+
+If we don't want to see the syntactic structure at all, but only the terminals, we can use the -t option instead:
+
+```
+$ tgrep2 -aft "/^NP/ << some " | more
+```
+
+CONTINUE HERE
+
+ The asterisk stands for a generic node. "@" (in certain environments "!") stands for negation. In words, the pattern states: find all nodes that dominate "some" and that are themselves not dominated by any other node. 
+
+```
+$ tgrep2 -af "* << some @> *" | more
+```
+
+
+si example
+
+van tiel & doran
