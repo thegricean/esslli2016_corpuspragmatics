@@ -244,25 +244,24 @@ $ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=
 
 #### Factive verbs from Beaver 2010
 
-**Cognitive factives**
+*Cognitive factives*: know, realize, discover, notice, recognize, find out, remember, forget, be aware that, be unaware that, admit, intuit
 
-know, realize, discover, notice, recognize, find out, remember, forget, be aware that, be unaware that, admit, intuit
+*Sensory factives*: sense, see, smell, hear, detect, observe
 
-**Sensory factives**
-
-sense, see, smell, hear, detect, observe
+Should we also include clearly non-factives as a control? E.g., "believe", "think".
 
 ### Search
 
-When creating and refining your patterns, it's useful to store them somewhere so you don't lose them or have to re-write them from scratch every time. For example, you might want to open a text editor and save them there, or have your email program open and write yourself an email that contains all the patterns.
+When creating and refining your patterns, it's useful to store them somewhere so you don't lose them or have to re-write them from scratch every time. For example, you might want to open a text editor and save them there, or have your email program open and write yourself an email that contains all the patterns. **If you save files on the virtual machine, make sure to save them into your home directory -- everything not saved in the home directory will be deleted when you log out!**
 
 1. Create a pattern that extracts all sentences that contain an instance of the above listed verbs. Tip: start with just getting one verb. Try refining your pattern incrementally in the following way:
 	1. Create a pattern that extracts a VP headed by one of the verbs.
-	2. Extend the pattern so it only picks out VPs with sentential complements
-	3. 
+	2. Extend the pattern so it only picks out VPs with sentential complements.
+	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
+	4. Extend the pattern so it captures all verbs.
+	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
+	6. Create a directory called "factives" in your home directory. Save the output of the pattern to a file factives.txt in the factives directory. How many matches did you generate?
 
-
-[//]: # (Comment)
 
 
 
