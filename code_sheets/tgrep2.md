@@ -280,7 +280,7 @@ For information about the Switchboard corpus, look [here](http://groups.inf.ed.a
 
 For information about the Penn Treebank (including POS and syntactic tagsets), look [here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.8216&rep=rep1&type=pdf).
 
-
+Access the TGrep2 manual [here](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf).
 
 
 
