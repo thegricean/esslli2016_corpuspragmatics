@@ -1,5 +1,24 @@
 # TGrep2 tutorial
 
+Based on the manual by Rohde 2005.
+
+The "T" in TGrep2 stands for "tree"; the "grep" for the Unix command-line utility that does regular expression search. Together, this allows us to search syntactic trees with regular expressions. TGrep2 operates on syntactically parsed corpora encoded especially for it — see manual for info on how to encode (pretty easy).
+
+General usage:
+
+```
+tgrep2 [options] [macrofile] <pattern>
+```
+
+If you ever need to see the help page and don't have the manual handy: 
+```
+tgrep2 -h
+```
+
+TGrep2 patterns consist of node names and relationships between those nodes. A node name consists of a string or a regular expressions (if the latter, enclosed in slashes).
+
+TGrep2 performs depth-first search. For example, A >> B will try to find the lowest B that is an ancestor of A, starting with A’s parent and working up towards the root of the tree. Similarly, A .. B will find the next B, in depth-first search order, following A. 
+
 ## Getting started
 
 Open VMWare. Log on to the virtual lab by following the instructions [here](http://esslli2016.unibz.it/?page_id=2228). Open a terminal -- under the Applications menu, select Accessories > Terminal.
