@@ -162,7 +162,7 @@ Use the -z option to show the search pattern that tgrep2 operates on.
 $ tgrep2 -aflz "/^VP/ < (/^PP/=pp1 < (IN < on)) | < (/^VP/ < =pp1)" | more
 ```
 
-A final useful feature are macros. For patterns we use over and over again, it might get cumbersome to keep typing them out, so we can build shortcuts. You can generate a file of macros that you can then use directly in your patterns simply by passing the macros file to tgrep2 as the last argument before the pattern. For example, we may want to define NP and VP macros so we don't have to keep typing all the slashes. Generate a macros file and call it MACROS.ptn by opening it in vi:
+Macros are useful. For patterns we use over and over again, it might get cumbersome to keep typing them out, so we can build shortcuts. You can generate a file of macros that you can then use directly in your patterns simply by passing the macros file to tgrep2 as the last argument before the pattern. For example, we may want to define NP and VP macros so we don't have to keep typing all the slashes. Generate a macros file and call it MACROS.ptn by opening it in vi:
 
 ```
 vi MACROS.ptn
@@ -180,6 +180,28 @@ Now we can run our VP dominating two PPs pattern using macros:
 $ tgrep2 -afl MACROS.ptn "@VP < (@PP=pp1 . (@PP @$ (@PP @= =pp1)))" | more
 ``` 
 
+Finally, we can control the output. So far, we've seen the -t (terminals) and -l (long-form syntax) options. Using the -w option will print the whole sentence. -x will print only the subtree ID, and -u will print the node label. 
+
+```
+$ tgrep2 -afx MACROS.ptn "@VP < (@PP=pp1 . (@PP @$ (@PP @= =pp1)))" | more
+$ tgrep2 -afu MACROS.ptn "@VP < (@PP=pp1 . (@PP @$ (@PP @= =pp1)))" | more
+``` 
+
+But we can exert more control over what exactly is displayed using the -m option. Sometimes we don't want the head node to be displayed. The following patterns display:
+
+- the first PP
+- the first and second PP, separated by a tab
+- the second and first PP, separated by a tab
+- the VP match ID followed by the first and second PP, tab-separated
+
+...we're starting to get something that looks like a database!
+
+```
+$ tgrep2 -afm "%t=pp1=\n" MACROS.ptn "@VP < (@PP=pp1 . (@PP @$ (@PP @= =pp1)))" | more
+$ tgrep2 -afm "%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP < (@PP=pp1 . (@PP=pp2 @$ (@PP @= =pp1)))" | more
+$ tgrep2 -afm "%t=pp2=\t%t=pp1=\n" MACROS.ptn "@VP < (@PP=pp1 . (@PP=pp2 @$ (@PP @= =pp1)))" | more
+$ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=pp2 @$ (@PP @= =pp1)))" | more
+``` 
 
 
 
