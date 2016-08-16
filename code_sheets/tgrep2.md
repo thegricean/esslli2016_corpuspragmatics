@@ -21,7 +21,7 @@ TGrep2 performs depth-first search. For example, A >> B will try to find the low
 
 ## Getting started
 
-Open VMWare. Log on to the virtual lab by following the instructions [here](http://esslli2016.unibz.it/?page_id=2228). Open a terminal -- under the Applications menu, select Accessories > Terminal.
+Open VMWare. Log on to the virtual lab by following the instructions [here](http://esslli2016.unibz.it/?page_id=2228). Open a terminal -- under the Applications menu, select Accessories > Terminal. **If you save files on the virtual machine, make sure to save them into your home directory -- everything not saved in the home directory will be deleted when you log out!**
 
 Make sure your environment variables are properly set. If they are, the output of the `echo` command should match the output below. In the terminal, type:
 
@@ -238,6 +238,32 @@ $ tgrep2 -afm "%t=pp2=\t%t=pp1=\n" MACROS.ptn "@VP < (@PP=pp1 . (@PP=pp2 @$ (@PP
 $ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=pp2 @$ (@PP @= =pp1)))" | more
 ``` 
 
+## Extracting factive verbs and their context
+
+### Background info
+
+#### Factive verbs from Beaver 2010
+
+**Cognitive factives**
+
+know, realize, discover, notice, recognize, find out, remember, forget, be aware that, be unaware that, admit, intuit
+
+**Sensory factives**
+
+sense, see, smell, hear, detect, observe
+
+### Search
+
+When creating and refining your patterns, it's useful to store them somewhere so you don't lose them or have to re-write them from scratch every time. For example, you might want to open a text editor and save them there, or have your email program open and write yourself an email that contains all the patterns.
+
+1. Create a pattern that extracts all sentences that contain an instance of the above listed verbs. Tip: start with just getting one verb. Try refining your pattern incrementally in the following way:
+	1. Create a pattern that extracts a VP headed by one of the verbs.
+	2. Extend the pattern so it only picks out VPs with sentential complements
+	3. 
+
+
+[//]: # (Comment)
+
 
 
 ## Resources
@@ -245,6 +271,25 @@ $ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=
 For information about the Switchboard corpus, look [here](http://groups.inf.ed.ac.uk/switchboard/index.html).
 
 For information about the Penn Treebank (including POS and syntactic tagsets), look [here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.8216&rep=rep1&type=pdf).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
