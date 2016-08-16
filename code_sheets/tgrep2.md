@@ -44,55 +44,127 @@ If there is a particular corpus that you want to use as a default, set a default
 Let's find all the instances of "some". We use the options -a and -f so that all subtrees matching one or more patterns will be reported, but each subtree will only be reported once.
 
 ```
-$ tgrep2 -af "some"
+$ tgrep2 -af "PP"
 ```
 
 In order for the output to not be written to standard out, which doesn't allow us to scroll through in an organized way and clutters the window, we use the pipe ("|") and "more" command in the following way:
 
 ```
-$ tgrep2 -af "some" | more
+$ tgrep2 -af "PP" | more
 ```
 
 Scroll down with the arrow or space bar keys. Press `q` to get back to the prompt.
 
-So far, this isn't very exciting -- all that's returned is the word "some". If we're interested in seeing the content around it, we need to make the head node of the match (the left-most node) something that spans "some". For example, if we want to extract the NP that "some" is embedded in, we use regular expression syntax in the following way:
+The output looks a little messy because tgrep2 by default returns the syntactic structure of the tree. There are two ways of dealing with this. If we want to see the structure in a more appealing way, we use the -l option:
 
 ```
-$ tgrep2 -af "/^NP/ << some " | more
+$ tgrep2 -afl "PP" | more
 ```
-
-The output looks somewhat messy because tgrep2 by default returns the syntactic structure of the tree. There are two ways of dealing with this. If we want to see the structure in a more appealing way, we use the -l option:
-
-```
-$ tgrep2 -afl "/^NP/ << some " | more
-```
-
-In words, this pattern states: return all nodes that begin with NP (which will match both nodes labeled simply "NP", but also nodes labeled "NP-SBJ" or "NP-PRD") and that dominate "some".
 
 If we don't want to see the syntactic structure at all, but only the terminals, we can use the -t option instead:
 
 ```
-$ tgrep2 -aft "/^NP/ << some " | more
+$ tgrep2 -aft "PP" | more
+``` 
+If we want to save any output to a file, we use ">" followed by the filename. For example:
+
+```
+$ tgrep2 -aft "PP" > pp.txt
 ``` 
 
-Let's say we want to see the entire sentence that contains the "some"-NP:
+We can now look into this file directly (with less or more):
 
 ```
-$ tgrep2 -af "* << some @> *" | more
+$ less pp.txt
+``` 
+
+Let's say we want to see the entire sentence that contains the PP:
+
+```
+$ tgrep2 -aft "* << PP @> *" | more
 ```
 
-The asterisk stands for a generic node. "@" (in certain environments "!") stands for negation. In words, the pattern states: find all nodes that dominate "some" and that are themselves not dominated by any other node; that is, find the top-level sentence node. 
+The asterisk stands for a generic node. "@" (in certain environments "!") stands for negation. In words, the pattern states: find all nodes that dominate a VP and that are themselves not dominated by any other node; that is, find the top-level sentence node. 
 
 If we want to see the number of matches instead of the actual output:
 
 ```
-$ tgrep2 -af "* << some @> *" | wc -l
+$ tgrep2 -aft "PP" | wc -l
 ```
 
-Note that if used in conjunction with the tgrep2 -l option, this won't return the actual number of matches, because wc -l counts lines and the tgrep2 -l option splits a match up into multiple lines to display pretty syntax.
+There are 39,058 nodes marked as PP. Note that if used in conjunction with the tgrep2 -l option, this won't return the actual number of matches, because wc -l counts lines and the tgrep2 -l option splits a match up into multiple lines to display pretty syntax.
+
+This pattern doesn't recover all PPs. Some PPs have additional annotation in their node label -- a handful of semantic roles are distinguished: direction, location, manner, purpose, and time.
+
+We get around this by searching for all nodes that *start* with PP:
+
+```
+$ tgrep2 -aft "/^PP/" | wc -l
+```
+
+You can see that this returns 57,385 PPs. Let's look more closely at their syntax.
+
+```
+$ tgrep2 -afl "/^PP/" | more
+```
+
+This returns things like PP-UNF, PP-LOC, PP-DIR, etc. 
+
+Say that instead of returning the actual PP, we want to see each prepositional head:
+
+```
+$ tgrep2 -afl "IN > /^PP/" | more
+```
+
+Let's get to some more complex patterns. Let's find VPs that dominate two PPs that immediately follow each other. Here's a start:
+
+```
+$ tgrep2 -afl "/^VP/ << /^PP/ . /^PP/" | more
+``` 
+
+There are many issues with this pattern. The first is: relations always link the following node to the first node. So, if we want to group the two PPs together, we use parentheses:
+
+```
+$ tgrep2 -afl "/^VP/ << (/^PP/ . /^PP/)" | more
+``` 
+Second, we don't want it to retrieve intermediate sub-trees, so we restrict the pattern to force the VP to directly dominate the PP.
+
+```
+$ tgrep2 -afl "/^VP/ < (/^PP/ . /^PP/)" | more
+``` 
+
+This is starting to look good! Say we want to limit ourselves to cases where the first PP is headed only by either "on" or "in":
+
+```
+$ tgrep2 -afl "/^VP/ < (/^PP/ < (IN [< over | < for]) . /^PP/)" | more
+``` 
+
+We can write this differently by putting the disjunction directly in the preposition node (make sure there are no spaces!):
+```
+$ tgrep2 -afl "/^VP/ < (/^PP/ < (IN < over|for) . /^PP/)" | more
+``` 
+
+What if we want to restrict ourselves to there really only being two PPs? Here is where node labeling becomes useful:
+
+```
+$ tgrep2 -afl "/^VP/ < (/^PP/=pp1 . (/^PP/ @$ (/^PP/ @= =pp1)))" | more
+``` 
+
+CONTINUE HERE
+
+Crossing links and the -z option
+
+Macros
+
+## Resources
+
+For information about the Switchboard corpus, look [here](http://groups.inf.ed.ac.uk/switchboard/index.html).
+
+For information about the Penn Treebank (including POS and syntactic tagsets), look [here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.8216&rep=rep1&type=pdf).
 
 
 
-si example
 
-van tiel & doran
+
+
+
