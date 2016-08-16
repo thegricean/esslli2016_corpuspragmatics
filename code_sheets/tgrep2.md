@@ -254,7 +254,7 @@ Should we also include clearly non-factives as a control? E.g., "believe", "thin
 
 When creating and refining your patterns, it's useful to store them somewhere so you don't lose them or have to re-write them from scratch every time. For example, you might want to open a text editor and save them there, or have your email program open and write yourself an email that contains all the patterns. **If you save files on the virtual machine, make sure to save them into your home directory -- everything not saved in the home directory will be deleted when you log out!**
 
-1. Create a pattern that extracts all sentences that contain an instance of the above listed verbs. Tip: start with just getting one verb. Try refining your pattern incrementally in the following way:
+1. Create a pattern that extracts all sentences that contain an instance of the above listed verbs. Hint: start with just one verb and refine your pattern incrementally in the following way:
 	1. Create a pattern that extracts a VP headed by one of the verbs.
 	2. Extend the pattern so it only picks out VPs with sentential complements.
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
@@ -262,6 +262,17 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
 	6. Create a directory called "factives" in your home directory. Save the output of the pattern to a file factives.txt in the factives directory. How many matches did you generate?
 
+
+2. Extend your pattern from 1. to retrieve various additional pieces of information about the syntactic context of the verb. Hint: use node labeling and the -m formatting option to output exactly the part of the match that you want.
+	1. Output the head verb of the VP.	
+	2. Output the complement of the verb.
+	3. Output the subject (for classification as first, second, or third person).
+	4. Output only matches where the verb is embedded
+		1. under negation.
+		2. in a question.
+		3. in the antecedent of a conditional.
+
+[//]: # (Comment)
 
 
 
