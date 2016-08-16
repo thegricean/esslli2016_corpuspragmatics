@@ -15,7 +15,7 @@ If you ever need to see the help page and don't have the manual handy:
 tgrep2 -h
 ```
 
-TGrep2 patterns consist of node names and relationships between those nodes. A node name consists of a string or a regular expressions (if the latter, enclosed in slashes).
+The help page will list formatting options and available relations between nodes. TGrep2 patterns consist of node names and relationships between those nodes. A node name consists of a string or a regular expressions (if the latter, enclosed in slashes).
 
 TGrep2 performs depth-first search. For example, A >> B will try to find the lowest B that is an ancestor of A, starting with A’s parent and working up towards the root of the tree. Similarly, A .. B will find the next B, in depth-first search order, following A. 
 
@@ -56,11 +56,27 @@ Find out what corpora can be used with TGrep2. All files that contain 't2c' in t
 $ ls $TGREP2ABLE
 ```
 
-If there is a particular corpus that you want to use as a default, set a default `TGREP2_CORPUS`. Currently, the Switchboard is set to be the default corpus. This allows you to not have to use the '-c' option and specify a corpus directly in the tgrep2 command.
+Set a default `TGREP2_CORPUS`. If you want to use the Switchboard with pretty tags (i.e., no IDs in the node labels), set it as follows:
+
+```
+$ export TGREP2_CORPUS=/home/shared/esslli/corpus_pragmatics/corpora/swbd.t2c.gz
+```
+
+If you instead want to use the Switchboard that will allow for prosodic information to be extracted, set it instead to:
+
+```
+$ export TGREP2_CORPUS=/home/shared/esslli/corpus_pragmatics/corpora/sw.backtrans_011410.t2c.gz
+```
+
+This version of Switchboard will allow you to extract prosodic information (so we'll use it on Thursday when we start adding extra information to our database of factive verbs), but for the purpose of trying out different TGrep2 commands and iterating on patterns, the basic version with pretty tags will be more useful. The numbers reported throughout this tutorial are based on using the basic version without prosodic information. Only the basic version will return output with a pattern like "PP" instead of "/^PP/", because it does not contain additional IDs in its node labels. You can always switch the default corpus you are working with by re-setting (with the export commands specified above) the $TGREP2_CORPUS variable. If you want to know what the variable is currently set to:
+
+```
+$ echo $TGREP2_CORPUS
+```
 
 ## Basic TGrep2 queries
 
-Let's find all the instances of "some". We use the options -a and -f so that all subtrees matching one or more patterns will be reported, but each subtree will only be reported once.
+Let's find all the prepositional phrases in the corpus. We use the options -a and -f so that all subtrees matching one or more patterns will be reported, but each subtree will only be reported once.
 
 ```
 $ tgrep2 -af "PP"
