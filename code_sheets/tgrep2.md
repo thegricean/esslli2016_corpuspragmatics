@@ -259,14 +259,19 @@ $ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=
 
 *What we can get with TDTlite:*
 - intonation / focus (prominence of verb compared to complement)
-- speaker identity
 
 *What to obtain via crowd-sourcing:*
 - PROJECTION RATINGS
 - a priori speaker belief in truth of complement
 - prior probability of truth of complement
 
-Can you think of others?
+Can you think of others? For example, do we expect the frequency of the verb to matter? Or its contextual predictability?
+
+*Additional information to extract for processing/crowd-sourcing/modeling:*
+- complement (TGrep2)
+- the sentence (TGrep2)
+- speaker info (TDTlite)
+
 
 ### Search
 
