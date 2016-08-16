@@ -263,6 +263,29 @@ When creating and refining your patterns, it's useful to store them somewhere so
 			-->		
 		
 		2. Peruse the data. Which cases look like the kinds of cases we're interested in (verbs with sentential complements)? Which don't? Make one list of "good" structures and one list of "bad" structures.
+
+			<!---
+			Good structures:
+			```
+			(SBAR (-NONE- 0)
+				  (S (NP-SBJ
+			(SBAR (-NONE- 0)
+	  			  (S (SBAR-TMP
+			(SBAR (-NONE- 0)
+	  			  (S (ADVP
+			(SBAR (IN that
+	  			  (S (NP-SBJ
+	  		```
+	  		
+			Bad structures:
+			```
+			(SBAR (WHADVP
+			(SBAR (WHNP
+			(SBARQ (WHADVP-2
+			(SBAR-PRP
+	  		```	  		
+			-->
+
 	2. Extend the pattern so it only picks out VPs with sentential complements. Use the information from 1. to extend your pattern by placing constraints on the inner structure of the VP.
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
 	4. Extend the pattern so it captures all verbs.
