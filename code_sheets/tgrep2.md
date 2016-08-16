@@ -275,18 +275,52 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	  			  (S (ADVP
 			(SBAR (IN that
 	  			  (S (NP-SBJ
+			(SBAR (SBAR (IN that
+	  			  		(S (NP-SBJ	
+	  		(SBAR (IN that)
+	  			  (, ,)
+	  			  (INTJ (UH uh))
+	  			  (, ,)
+	  			  (S (NP
+			(SBAR (-NONE- 0)
+	  			  (S (ADVP-LOC	  			  
 	  		```
-	  		
+
 			Bad structures:
 			```
 			(SBAR (WHADVP
 			(SBAR (WHNP
+			(SBAR (WHADJP
 			(SBARQ (WHADVP-2
 			(SBAR-PRP
+			(SBAR-UNF
+			(SBAR (SBAR (WHNP
 	  		```	  		
 			-->
 
 	2. Extend the pattern so it only picks out VPs with sentential complements. Use the information from 1. to extend your pattern by placing constraints on the inner structure of the VP.
+
+		<!---
+		Make sure there's a sentential complement:
+		```
+		tgrep2 -afl "/^VP/ <<, /^know/ <2 /^SBAR/" | more
+		```
+		Negative definition of constraints:
+		```
+		tgrep2 -afl "/^VP/ <<, /^know/=verb @< /^SBAR-UNF|^SBAR-PRP/ < (/^SBAR/ , =verb @< /^WH/ @< (/^SBAR/ < /^WH/))" | more
+		```
+		Positive definition of constraints:
+		```
+		tgrep2 -afl "/^VP/ <<, /^know/=verb < (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/)" | more
+		```
+		Check the number of matches of each pattern:
+		```
+		tgrep2 -aft "/^VP/ <<, /^know/=verb @< /^SBAR-UNF|^SBAR-PRP/ < (/^SBAR/ , =verb @< /^WH/ @< (/^SBAR/ < /^WH/))" | wc -l
+		tgrep2 -aft "/^VP/ <<, /^know/=verb < (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/)" | wc -l
+		```
+		The positive pattern retrieves fewer cases -- is it too restrictive or is the negative pattern to permissive?
+		-->
+
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
 	4. Extend the pattern so it captures all verbs.
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
