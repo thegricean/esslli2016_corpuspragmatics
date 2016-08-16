@@ -150,11 +150,38 @@ What if we want to restrict ourselves to there really only being two PPs? Here i
 $ tgrep2 -afl "/^VP/ < (/^PP/=pp1 . (/^PP/ @$ (/^PP/ @= =pp1)))" | more
 ``` 
 
-CONTINUE HERE
+An important issue that can cause huge headaches: crossing links. A crossing link extends from a node to a subtree on its left. The problem with crossing links is that they can make matching a pattern to a tree an extremely slow and complicated computational process. Therefore, TGrep2 does not permit crossing links. If a link to a labeled node forms a crossing link, then a copy is made of the whole subtree in the pattern pointed to by the link. For example:
 
-Crossing links and the -z option
+```
+$ tgrep2 -afl "/^VP/ < (/^PP/=pp1 < (IN < on)) | < (/^VP/ < =pp1)" | more
+```
 
-Macros
+Use the -z option to show the search pattern that tgrep2 operates on.
+
+```
+$ tgrep2 -aflz "/^VP/ < (/^PP/=pp1 < (IN < on)) | < (/^VP/ < =pp1)" | more
+```
+
+A final useful feature are macros. For patterns we use over and over again, it might get cumbersome to keep typing them out, so we can build shortcuts. You can generate a file of macros that you can then use directly in your patterns simply by passing the macros file to tgrep2 as the last argument before the pattern. For example, we may want to define NP and VP macros so we don't have to keep typing all the slashes. Generate a macros file and call it MACROS.ptn by opening it in vi:
+
+```
+vi MACROS.ptn
+```
+
+Add the following content to it (press "i" to insert text; press "Esc" to get out of edit mode; enter ":wq" to save and exit):
+```
+@ PP    /^PP/;
+@ VP    /^VP/;
+```
+
+Now we can run our VP dominating two PPs pattern using macros:
+
+```
+$ tgrep2 -afl MACROS.ptn "@VP < (@PP=pp1 . (@PP @$ (@PP @= =pp1)))" | more
+``` 
+
+
+
 
 ## Resources
 
