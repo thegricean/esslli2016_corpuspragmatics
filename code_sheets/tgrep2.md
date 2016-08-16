@@ -248,7 +248,25 @@ $ tgrep2 -afm "%x=vp=\t%t=pp1=\t%t=pp2=\n" MACROS.ptn "@VP=vp < (@PP=pp1 . (@PP=
 
 *Sensory factives*: sense, see, smell, hear, detect, observe
 
-Should we also include clearly non-factives as a control? E.g., "believe", "think".
+*Controls?* E.g., "believe", "think".
+
+#### Factors of interest
+
+*What we can get straight from the corpus with TGrep2:*
+- person (1st, 2nd, 3rd)
+- the verb itself
+- the environment the verb occurs in (negation, antecedent of conditional, question)
+
+*What we can get with TDTlite:*
+- intonation / focus (prominence of verb compared to complement)
+- speaker identity
+
+*What to obtain via crowd-sourcing:*
+- PROJECTION RATINGS
+- a priori speaker belief in truth of complement
+- prior probability of truth of complement
+
+Can you think of others?
 
 ### Search
 
