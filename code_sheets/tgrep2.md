@@ -258,7 +258,7 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	1. Create a pattern that extracts a VP headed by one of the verbs.
 		1. Use the -l option to inspect the syntactic structure of the output.
 
-		[//]: # (tgrep2 -afl "/^VP/ <<, /^know/" | more)
+		[//]: <> (tgrep2 -afl "/^VP/ <<, /^know/" | more)
 		
 		2. Peruse the data. Which cases look like the kinds of cases we're interested in (verbs with sentential complements)? Which don't? Make one list of "good" structures and one list of "bad" structures.
 	2. Extend the pattern so it only picks out VPs with sentential complements. Use the information from 1. to extend your pattern by placing constraints on the inner structure of the VP.
