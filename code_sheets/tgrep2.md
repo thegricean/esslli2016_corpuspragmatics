@@ -267,12 +267,10 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	1. Output the head verb of the VP.	
 	2. Output the complement of the verb.
 	3. Output the subject (for classification as first, second, or third person).
-	4. Output only matches where the verb is embedded
+	4. Output only those matches where the verb is embedded
 		1. under negation.
 		2. in a question.
 		3. in the antecedent of a conditional.
-
-[//]: # (Comment)
 
 
 
