@@ -286,11 +286,10 @@ When creating and refining your patterns, it's useful to store them somewhere so
 ```			
 			tgrep2 -afl "/^VP/ <<, /^know/" | more
 ```
-		
 		2. Peruse the data. Which cases look like the kinds of cases we're interested in (verbs with sentential complements)? Which don't? Make one list of "good" structures and one list of "bad" structures.
 
-			Good structures:
 			```
+			Good structures:
 			(SBAR (-NONE- 0)
 				  (S (NP-SBJ
 			(SBAR (-NONE- 0)
@@ -308,10 +307,8 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	  			  (S (NP
 			(SBAR (-NONE- 0)
 	  			  (S (ADVP-LOC	  			  
-	  		```
 
 			Bad structures:
-			```
 			(SBAR (WHADVP
 			(SBAR (WHNP
 			(SBAR (WHADJP
@@ -344,19 +341,15 @@ When creating and refining your patterns, it's useful to store them somewhere so
 
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
 
-		<!---
 		```
 		tgrep2 -afl "/^VP/ <<, /^know|knew/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
 		```
-		-->
 
 	4. Extend the pattern so it captures all verbs. Hint: ignore the multi-word predicates for the time being.
 
-		<!---
 		```
 		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|discover|notice|recognize|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
 		```
-		-->
 
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
 	6. Create a directory called "factives" in your home directory. Save the output of the pattern to a file factives.txt in the factives directory. How many matches did you generate?
@@ -380,20 +373,6 @@ For information about the Switchboard corpus, look [here](http://groups.inf.ed.a
 For information about the Penn Treebank (including POS and syntactic tagsets), look [here](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.8216&rep=rep1&type=pdf).
 
 Access the TGrep2 manual [here](https://tedlab.mit.edu/~dr/Tgrep2/tgrep2.pdf).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
