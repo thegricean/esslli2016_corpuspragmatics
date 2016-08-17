@@ -1,5 +1,7 @@
 # TGrep2 tutorial
 
+Success!
+
 Based on the manual by Rohde 2005.
 
 The "T" in TGrep2 stands for "tree"; the "grep" for the Unix command-line utility that does regular expression search. Together, this allows us to search syntactic trees with regular expressions. TGrep2 operates on syntactically parsed corpora encoded especially for it — see manual for info on how to encode (pretty easy).
