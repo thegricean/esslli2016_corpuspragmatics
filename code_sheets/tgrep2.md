@@ -334,9 +334,43 @@ When creating and refining your patterns, it's useful to store them somewhere so
 		Check the number of matches of each pattern:
 		```
 		tgrep2 -aft "/^VP/ <<, /^know/=verb @< /^SBAR-UNF|^SBAR-PRP/ < (/^SBAR/ , =verb @< /^WH/ @< (/^SBAR/ < /^WH/))" | wc -l
-		tgrep2 -aft "/^VP/ <<, /^know/=verb < (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/)" | wc -l
+		tgrep2 -aft "/^VP/ <<, /^know/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | wc -l
 		```
-		The positive pattern retrieves fewer cases -- is it too restrictive or is the negative pattern to permissive?
+		The positive pattern retrieves fewer cases -- is it too restrictive or is the negative pattern to permissive? Saving the results of each pattern to a file and doing a diff as follows:
+		```
+		tgrep2 -aft "/^VP/ <<, /^know/=verb @< /^SBAR-UNF|^SBAR-PRP/ < (/^SBAR/ , =verb @< /^WH/ @< (/^SBAR/ < /^WH/))" > negative_pattern.txt
+		tgrep2 -aft "/^VP/ <<, /^know/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" > positive_pattern.txt
+		diff -y --suppress-common-lines positive_pattern.txt negative_pattern.txt
+		tgrep2 -afl "/^VP/ <<, /^know/=verb @< /^SBAR-UNF|^SBAR-PRP/ < (/^SBAR/ , =verb @< /^WH/ @< (/^SBAR/ < /^WH/))" > negative_pattern_l.txt
+		tgrep2 -afl "/^VP/ <<, /^know/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" > positive_pattern_l.txt
+		diff -y --suppress-common-lines positive_pattern_l.txt negative_pattern_l.txt		
+		```
+		suggests that the negative pattern is too permissive and the positive pattern correctly excludes cases such as the following:
+		```
+		(VP (VB know)
+			(SBAR (IN if)
+				  (S (NP-SBJ (PRP we))
+					 (VP (VBP 've)
+						 (VP (VBN done)
+							 (NP (CD five)
+								 (NNS minutes)))))))
+		
+		(VP (VB know)
+			(SBAR (IN whether)
+				  (S (NP-SBJ-1 (PRP you))
+					 (VP (VBP 've)
+						 (VP (VBN had)
+							 (NP (DT a)
+								 (NN chance)
+								 (S (NP-SBJ (-NONE- *-1))
+									(VP (TO to)
+										(VP (VB watch)
+											(NP (PRP it))
+											(PP (IN on)
+												(NP (NNP P)
+												(NNP B)
+												(NNP S)))))))))))		
+		```
 
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
 
@@ -347,7 +381,7 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	4. Extend the pattern so it captures all verbs. Hint: ignore the multi-word predicates for the time being.
 
 		```
-		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|discover|notice|recognize|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
+		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]
 		```
 
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
