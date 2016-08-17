@@ -336,7 +336,7 @@ When creating and refining your patterns, it's useful to store them somewhere so
 		```
 		Positive definition of constraints:
 		```
-		tgrep2 -afl "/^VP/ <<, /^know/=verb < (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/)" | more
+		tgrep2 -afl "/^VP/ <<, /^know/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
 		```
 		Check the number of matches of each pattern:
 		```
@@ -347,7 +347,21 @@ When creating and refining your patterns, it's useful to store them somewhere so
 		-->
 
 	3. Extend the pattern so it picks out the verb in all its different forms (e.g., "know", "knows", "knowing", "knew", "known").
-	4. Extend the pattern so it captures all verbs.
+
+		<!---
+		```
+		tgrep2 -afl "/^VP/ <<, /^know|knew/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
+		```
+		-->
+
+	4. Extend the pattern so it captures all verbs. Hint: ignore the multi-word predicates for the time being.
+
+		<!---
+		```
+		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|discover|notice|recognize|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
+		```
+		-->
+
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
 	6. Create a directory called "factives" in your home directory. Save the output of the pattern to a file factives.txt in the factives directory. How many matches did you generate?
 
