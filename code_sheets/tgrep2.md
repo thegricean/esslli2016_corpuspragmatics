@@ -381,7 +381,7 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	4. Extend the pattern so it captures all verbs. Hint: ignore the multi-word predicates for the time being.
 
 		```
-		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]
+		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
 		```
 
 	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
@@ -392,9 +392,68 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	1. Output the head verb of the VP.	
 	2. Output the complement of the verb.
 	3. Output the subject (for classification as first, second, or third person).
+	```
+	(S (NP-SBJ (PRP you))
+	(VP (MD would)
+	     (RB n't)
+	     (VP (VB notice)
+
+	(TOP (S (ADVP (IN Although))
+	        (, ,)
+	        (NP-SBJ (PRP I))
+	        (VP (MD must)	     
+
+    (SQ-PRD (EDITED (RM (-DFL- \[))
+                     (SQ-UNF (VBD did)
+                             (NP-SBJ (PRP he)))
+                     (, ,)
+                     (IP (-DFL- \+)))
+             (VBD did)
+             (NP-SBJ (PRP he))
+             (RS (-DFL- \]))
+             (ADVP (RB really))
+             (VP (VB know)
+
+    (NP-SBJ (PRP I))
+    (RS (-DFL- \]))
+    (VP (VBP do)
+        (RB n't)
+        (VP (VB think)
+
+	(TOP (S (CC But)
+	        (NP-SBJ (PRP I))
+	        (VP (VBD realized)
+
+	(TOP (S (CC But)
+	        (PP (IN on)
+	            (NP (DT the)
+	                (JJ other)
+	                (NN hand)))
+	        (, ,)
+	        (NP-SBJ (PRP I))
+	        (VP (VBD realized)
+
+tgrep2 -afl MACROS.ptn "* << (@FACTIVE ,, /if/) @> *" | more
+
+
+	```
 	4. Output only those matches where the verb is embedded
 		1. under negation.
+		
+		<!---
+		```
+		tgrep2 -aftw MACROS.ptn "@FACTIVE <<, (@FACTIVEVERB , /n't|not/)" | more
+		```
+		-->
+
 		2. in a question.
+		
+		<!---
+		```
+		tgrep2 -afwt MACROS.ptn "@FACTIVE >> /^SQ|^SBARQ/" | more
+		```
+		-->
+
 		3. in the antecedent of a conditional.
 
 
