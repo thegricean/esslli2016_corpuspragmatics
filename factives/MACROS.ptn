@@ -4,6 +4,6 @@
 @ VP            /^VP/;
 @ PP            /^PP/;
 @ DISFL         /EDITED|UH|PRN|-UNF/;
-@ FACTIVEVERB	/^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/;
+@ FACTIVEVERB	/^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit|believe|believing|sense|sensing|see|saw|detect|think|thought/;
 @ FACTIVE	(@VP <<, @FACTIVEVERB=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]);
 
