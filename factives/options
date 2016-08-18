@@ -3,10 +3,10 @@ results=/home/others/esslli330/esslli2016_corpuspragmatics/factives/results
 
 init ID
 
-add StringVar Verb
-add StringVar Complement
-add StringVar Sentence
-add CategoricalVar Environment=negation:Negation,conditional:Conditional,question:Question
-add StringVar Subject
+#add StringVar Verb
+#add StringVar Complement
+#add StringVar Sentence
+#add CategoricalVar Environment=negation:Negation,conditional:Conditional,question:Question
+#add StringVar Subject
 #add StringVar PrevContext=4-b
 #add StringVar FollowingContext=4-a
