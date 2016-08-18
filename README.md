@@ -1,4 +1,4 @@
-**UPDATE: Experiment will be online at 7pm**
+**UPDATE: The mini crowd-sourcing experiment is now online [here](http://web.stanford.edu/~jdegen/cgi-bin/projection/projection.html)! It would be great if you all could complete this by 10:30am so we can look at the data in class. See you in the morning!**
 
 This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.
 
