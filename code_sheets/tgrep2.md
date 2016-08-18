@@ -404,36 +404,28 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	2. Output the complement of the verb.
 	3. Output the subject (for classification as first, second, or third person).
 	
-	<!---
 	```
 	tgrep2 -aftw -m "%t=subj=\t%t=s=\n" MACROS.ptn "@FACTIVE ,, /^NP-SBJ/=subj >> (*=s @> *)" | more
 	```
-	-->
 
 	4. Output only those matches where the verb is embedded
 		1. under negation.
 		
-		<!---
 		```
 		tgrep2 -aftw MACROS.ptn "@FACTIVE <<, (@FACTIVEVERB , /n't|not/)" | more
 		```
-		-->
 
 		2. in a question.
 		
-		<!---
 		```
 		tgrep2 -afwt MACROS.ptn "@FACTIVE >> /^SQ|^SBARQ/" | more
 		```
-		-->
 
 		3. in the antecedent of a conditional.
 		
-		<!---
 		```
 		tgrep2 -aft MACROS.ptn "* << (@FACTIVE ,, /if|If/) @> *" | more
 		```
-		-->
 
 
 ## Resources
