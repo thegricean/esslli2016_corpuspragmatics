@@ -381,11 +381,22 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	4. Extend the pattern so it captures all verbs. Hint: ignore the multi-word predicates for the time being.
 
 		```
-		tgrep2 -afl "/^VP/ <<, /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
+		tgrep2 -aft "/^VP/ <<, /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]" | more
 		```
 
-	5. Save the pattern in a macro called @FACTIVE (see above for how to create and use macros).
-	6. Create a directory called "factives" in your home directory. Save the output of the pattern to a file factives.txt in the factives directory. How many matches did you generate?
+	5. Rewrite the pattern as a macro. First, write a macro @FACTIVEVERB that matches the long verbal disjunction. Then write a macro @FACTIVE for the whole pattern that itself uses @FACTIVEVERB. Save your macros in a file MACROS.ptn (see above for how to create and use macros). Run the tgrep2 query using your new macros. Make sure it generates the same number of matches as the original search pattern.
+
+	<!---
+	Content of MACROS.ptn:
+	```
+	@ FACTIVEVERB   /^know|knew|realize|realizing|discover|notice|noticing|recognize|recognizing|remember|forget|forgot|admit|intuit/;
+	@ FACTIVE       (/^VP/ <<, @FACTIVEVERB=verb [< (/^SBAR/ , =verb [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/) | < (/^SBAR/ , =verb <1 (/^SBAR/ [<1 /^-NONE/ | <1 (/^IN/ < that)] < /^S/))]);
+	```
+	Run the search for factives with macros and check how many matches are generated:
+	```
+	tgrep2 -aft MACROS.ptn "@FACTIVE" | wc -l
+	```
+	-->
 
 
 2. Extend your pattern from 1. to retrieve various additional pieces of information about the syntactic context of the verb. Hint: use node labeling and the -m formatting option to output exactly the part of the match that you want.
