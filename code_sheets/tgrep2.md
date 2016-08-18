@@ -392,51 +392,13 @@ When creating and refining your patterns, it's useful to store them somewhere so
 	1. Output the head verb of the VP.	
 	2. Output the complement of the verb.
 	3. Output the subject (for classification as first, second, or third person).
+	
+	<!---
 	```
-	(S (NP-SBJ (PRP you))
-	(VP (MD would)
-	     (RB n't)
-	     (VP (VB notice)
-
-	(TOP (S (ADVP (IN Although))
-	        (, ,)
-	        (NP-SBJ (PRP I))
-	        (VP (MD must)	     
-
-    (SQ-PRD (EDITED (RM (-DFL- \[))
-                     (SQ-UNF (VBD did)
-                             (NP-SBJ (PRP he)))
-                     (, ,)
-                     (IP (-DFL- \+)))
-             (VBD did)
-             (NP-SBJ (PRP he))
-             (RS (-DFL- \]))
-             (ADVP (RB really))
-             (VP (VB know)
-
-    (NP-SBJ (PRP I))
-    (RS (-DFL- \]))
-    (VP (VBP do)
-        (RB n't)
-        (VP (VB think)
-
-	(TOP (S (CC But)
-	        (NP-SBJ (PRP I))
-	        (VP (VBD realized)
-
-	(TOP (S (CC But)
-	        (PP (IN on)
-	            (NP (DT the)
-	                (JJ other)
-	                (NN hand)))
-	        (, ,)
-	        (NP-SBJ (PRP I))
-	        (VP (VBD realized)
-
-tgrep2 -afl MACROS.ptn "* << (@FACTIVE ,, /if/) @> *" | more
-
-
+	tgrep2 -aftw -m "%t=subj=\t%t=s=\n" MACROS.ptn "@FACTIVE ,, /^NP-SBJ/=subj >> (*=s @> *)" | more
 	```
+	-->
+
 	4. Output only those matches where the verb is embedded
 		1. under negation.
 		
@@ -455,7 +417,12 @@ tgrep2 -afl MACROS.ptn "* << (@FACTIVE ,, /if/) @> *" | more
 		-->
 
 		3. in the antecedent of a conditional.
-
+		
+		<!---
+		```
+		tgrep2 -aft MACROS.ptn "* << (@FACTIVE ,, /if|If/) @> *" | more
+		```
+		-->
 
 
 ## Resources
