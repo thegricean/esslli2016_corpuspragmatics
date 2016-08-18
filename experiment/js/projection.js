@@ -29,7 +29,7 @@ function make_slides(f) {
     present_handle : function(stim) {
       $(".err").hide();
 
-      this.stim = stim; //I like to store this information in the slide so I can record it later.
+      this.stim = stim;
 
       $(".prompt").html('"'+stim.sentence+'"');
 
@@ -43,9 +43,6 @@ function make_slides(f) {
         $(".err").show();
       } else {
         this.log_responses();
-
-        /* use _stream.apply(this); if and only if there is
-        "present" data. (and only *after* responses are logged) */
         _stream.apply(this);
       }
     },
@@ -71,7 +68,6 @@ function make_slides(f) {
   slides.subj_info =  slide({
     name : "subj_info",
     submit : function(e){
-      //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
       exp.subj_data = {
         language : $("#language").val(),
         enjoyment : $("#enjoyment").val(),
@@ -81,7 +77,7 @@ function make_slides(f) {
         education : $("#education").val(),
         comments : $("#comments").val(),
       };
-      exp.go(); //use exp.go() if and only if there is no "present" data.
+      exp.go();
     }
   });
 
@@ -107,7 +103,7 @@ function make_slides(f) {
 function init() {
   exp.trials = [];
   exp.catch_trials = [];
-  exp.condition = _.sample(["CONDITION 1", "condition 2"]); //can randomize between subject conditions here
+  // exp.condition = _.sample(["CONDITION 1", "condition 2"]); //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
       OS : BrowserDetect.OS,
@@ -117,7 +113,7 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-  exp.structure=[ "one_slider", "i0", "instructions", 'subj_info', 'thanks'];
+  exp.structure=[ "i0", "instructions", "one_slider", 'subj_info', 'thanks'];
   
   exp.data_trials = [];
   //make corresponding slides:
