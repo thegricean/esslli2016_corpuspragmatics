@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/202974/ad5eafca3857493b8b5e109e29361d95
+bundleId: https://api.rpubs.com/api/v1/document/202974/ad5eafca3857493b8b5e109e29361d95
+url: http://rpubs.com/thegricean/202974
+when: 1471595476.85847

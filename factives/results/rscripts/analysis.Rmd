@@ -1,0 +1,299 @@
+---
+title: "Analysis of factive verbs"
+author: "jdegen"
+date: "Aug 19, 2016"
+output: html_document
+---
+
+## Step 1: select stimuli for experiment
+
+Set your path here and load some packages:
+
+```{r}  
+setwd("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/code_sheets/")
+source("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/results/rscripts/helpers.R")
+library(ggplot2)
+theme_set(theme_bw())
+
+```
+
+Read the database into R and explore it.
+```{r}
+d = read.table("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/factives_corpus_search/results/swbdext.tab",sep="\t",header=T,quote="")
+nrow(d)
+head(d)
+str(d)
+summary(d)
+```
+
+Recode some variables (verb type, lemma).
+```{r}
+d$VerbType = as.factor(ifelse(d$Verb %in% c("believe","believed","thinking","thinks","thought","think"),"control",ifelse(d$Verb %in% c("saw","see","seeing","seemed","seems","seen","sees","sense"),"sense","factive")))
+d$VerbLemma = as.factor(ifelse(d$Verb %in% c("believe","believed"),"believe",ifelse(d$Verb %in% c("thinking","thinks","thought","think"),"think",ifelse(d$Verb %in% c("saw","see","seeing"),"see",ifelse(d$Verb %in% c("know","knows","knew","known"),"know",ifelse(d$Verb %in% c("realize","realized"),"realize",ifelse(d$Verb %in% c("notice","noticed"),"notice","other")))))))
+```
+
+Output overview of cases.
+```{r}
+table(d$Verb,d$VerbType)
+table(d$VerbLemma,d$Environment)
+```
+
+Restrict to those cases where subject is pronominal or "people".
+
+```{r}
+d = droplevels(d[d$Subject %in% c("people","she","he","it","we","they","you","i"),])
+d$SubjectPerson = as.factor(ifelse(d$Subject %in% c("i","we"), "1st",ifelse(d$Subject == "you","2nd",ifelse(d$Subject %in% c("it","he","she","people","they"),"3rd","other"))))
+
+table(d$Verb,d$SubjectPerson,d$Environment)
+```
+
+Select verbs
+```{r}
+see = droplevels(d[d$VerbLemma == "see",])
+believe = droplevels(d[d$VerbLemma == "believe",])
+think = droplevels(d[d$VerbLemma == "think",])
+know = droplevels(d[d$VerbLemma == "know",])
+realize = droplevels(d[d$VerbLemma == "realize",])
+
+sampledsee = see %>%
+  filter(Environment != "question") %>%
+  filter(nchar(as.character(Complement)) > 12) %>%
+  group_by(Environment) %>%
+  sample_n(.,2)
+sampledsee = as.data.frame(sampledsee)
+sampledsee
+nrow(sampledsee)
+
+sampledthink = think %>%
+  filter(nchar(as.character(Complement)) > 12) %>%
+  group_by(Environment) %>%
+  sample_n(.,2)
+sampledthink = as.data.frame(sampledthink)
+sampledthink
+nrow(sampledthink)
+
+sampledbelieve = believe %>%
+  filter(nchar(as.character(Complement)) > 12) %>%
+  group_by(Environment) %>%
+  sample_n(.,2)
+sampledbelieve = as.data.frame(sampledbelieve)
+sampledbelieve
+nrow(sampledbelieve)
+
+sampledknow = know %>%
+  filter(nchar(as.character(Complement)) > 12) %>%
+  group_by(Environment) %>%
+  sample_n(.,4)
+sampledknow = as.data.frame(sampledknow)
+sampledknow
+nrow(sampledknow)
+
+sampledrealize = realize %>%
+  filter(nchar(as.character(Complement)) > 12) %>%
+  filter(Environment != "question") %>%
+  group_by(Environment) %>%
+  sample_n(.,4)
+sampledrealize = as.data.frame(sampledrealize)
+sampledrealize
+nrow(sampledrealize)
+
+```
+
+Combine all the sampled cases and write them to a stimulus file.
+```{r}
+library(jsonlite)  
+library(dplyr)
+
+merged = bind_rows(sampledsee,sampledthink,sampledbelieve,sampledknow,sampledrealize) %>% 
+  mutate(NoThatComplement=gsub("^that ","",Complement,perl=T)) %>%
+  mutate(StrippedComplement=gsub("--n[a-zA-Z0-9]*( |\\.|,|'|$)","",NoThatComplement,perl=T),StrippedSentence = gsub("--n[a-zA-Z0-9]*( |\\.|,|'|$)","",Sentence,perl=T)) %>%
+  select(Item_ID,StrippedComplement,StrippedSentence,VerbType) %>%
+  rename(id=Item_ID,complement=StrippedComplement,sentence=StrippedSentence,stimType=VerbType)
+merged = as.data.frame(merged)
+
+writeOutJSON <- toJSON(merged,pretty=T)
+write(writeOutJSON, "/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/factives_experiment/js/stimuli.json")
+```
+
+## Step 2: analyze projection data
+```{r}
+pd = data.frame()
+temp = list.files("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/results/data/projection_data")
+for (i in 1:length(temp)) {
+  raw = fromJSON(paste("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/results/data/projection_data/",temp[i],sep=""))
+  td = raw$trials
+  subj = raw$subject_information
+  td$language = subj$language
+  td$enjoyment = subj$enjoyment
+  td$asses = subj$asses
+  td$age = subj$age
+  td$gender = subj$gender
+  td$education = subj$education
+  td$comments = subj$comments
+  td$participant = i
+  pd = bind_rows(pd,td)
+}
+pd = as.data.frame(pd)
+pd[sapply(pd, is.character)] <- lapply(pd[sapply(pd, is.character)],as.factor)
+pd$participant = as.factor(as.character(pd$participant))
+```
+
+Because we didn't record all information from the original database in the experiment, we need to merge that information back in by matching the TGrep2 item IDs.
+```{r}
+row.names(d) = d$Item_ID
+pd$subject = d[as.character(pd$id),]$Subject
+pd$verb = d[as.character(pd$id),]$Verb
+pd$environment = d[as.character(pd$id),]$Environment
+pd$environment = as.character(pd$environment)
+pd[pd$environment == "",]$environment = "main"
+pd$environment = as.factor(as.character(pd$environment))
+pd$subjectperson = d[as.character(pd$id),]$SubjectPerson
+summary(pd)
+nrow(pd)
+```
+
+### Understand your participant population
+
+Get unique participant information.
+```{r}
+pinfo = unique(pd[,c("language","enjoyment","asses","age","gender","comments")])
+nrow(pinfo)
+```
+
+Is everyone a native speaker of English?
+```{r}
+table(pinfo$language)
+```
+
+Did people love or hate the experiment?
+```{r}
+table(pinfo$enjoyment)
+```
+
+Did people understand the experiment?
+```{r}
+table(pinfo$asses)
+```
+
+How old are our participants?
+```{r}
+ggplot(pd, aes(x=as.numeric(as.character(age)))) +
+  geom_histogram()
+```
+
+What is the gender of our participants?
+```{r}
+table(pinfo$gender)
+```
+
+What did participants have to say about the experiment?
+```{r}
+pinfo$comments
+```
+
+### Visualize your data
+
+Plot the overall distribution of responses.
+```{r}
+ggplot(pd, aes(x=response)) +
+  geom_histogram()
+```
+
+This histogram includes cognitive factives (know, realize), sense factives (see), and non-factivs (believe, think). Let's group histograms by these three groups. 
+```{r,fig.height=5}
+ggplot(pd, aes(x=response)) +
+  geom_histogram() +
+  facet_wrap(~stim_type) 
+```
+
+Do the distributions vary by subject person?
+```{r}
+ggplot(pd, aes(x=response,fill=subjectperson)) +
+  geom_histogram(position="dodge",binwidth=.1) +
+  facet_wrap(~stim_type) 
+```
+
+Do the distributions vary by environment? Let's re-order the environment factor levels so "main clause" is in the top row.
+```{r}
+pd$env = factor(x=pd$environment, levels=c("main","negation","conditional","question"))
+ggplot(pd, aes(x=response)) +
+  geom_histogram(position="dodge") +
+  facet_grid(environment~stim_type) 
+ggplot(pd, aes(x=response)) +
+  geom_histogram(position="dodge") +
+  facet_grid(env~stim_type) 
+```
+
+Do the distributions vary both by environment and by subject person?
+```{r}
+ggplot(pd, aes(x=response,fill=subjectperson)) +
+  geom_histogram(position="dodge") +
+  facet_grid(env~stim_type) 
+```
+
+This visualization is getting unwieldy. There are too many facets with too many variables being plotted, all the while the numbers of observations in each cell are unbalanced. Let's try to compress this information into a simpler form.
+```{r}
+agr = pd %>%
+  group_by(environment,stim_type) %>%
+  summarise(mean_projection=mean(response))
+ggplot(agr, aes(x=environment,y=mean_projection)) +
+  geom_bar(stat="identity",position="dodge",color="black",fill="gray60") +
+  facet_wrap(~stim_type)
+```
+
+This is easier to read, but we lost a lot of information about variability in each condition. Let's instead plot condition means with bootstrapped 95% confidence intervals.
+```{r}
+agr = pd %>%
+  group_by(environment,stim_type) %>%
+  summarise(mean_projection=mean(response),ymin=mean(response)-ci.low(response),ymax=mean(response)+ci.high(response))
+ggplot(agr, aes(x=environment,y=mean_projection)) +
+  geom_bar(stat="identity",position="dodge",color="black",fill="gray60") +
+  geom_errorbar(aes(ymin=ymin,ymax=ymax),width=.25) +
+  facet_wrap(~stim_type)
+```
+
+Let's add the subject information back in.
+```{r}
+agr = pd %>%
+  group_by(environment,subjectperson,stim_type) %>%
+  summarise(mean_projection=mean(response),ymin=mean(response)-ci.low(response),ymax=mean(response)+ci.high(response))
+dodge = position_dodge(.9)
+ggplot(agr, aes(x=environment,y=mean_projection,fill=subjectperson)) +
+  geom_bar(stat="identity",position=dodge,color="black") +
+  geom_errorbar(aes(ymin=ymin,ymax=ymax),width=.25,position=dodge) +
+  facet_wrap(~stim_type)
+```
+
+This looks ugly. Let's try plotting points instead and make the x axis labels more readable.
+```{r}
+agr = pd %>%
+  group_by(environment,subjectperson,stim_type) %>%
+  summarise(mean_projection=mean(response),ymin=mean(response)-ci.low(response),ymax=mean(response)+ci.high(response))
+ggplot(agr, aes(x=environment,y=mean_projection,color=subjectperson)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=ymin,ymax=ymax),width=.25) +
+  facet_wrap(~stim_type) +
+  theme(axis.text.x = element_text(angle=45,vjust=1,hjust=1))
+```
+
+Does complement length matter?
+```{r}
+pd$complement_length = nchar(as.character(pd$complement))
+ggplot(pd, aes(x=complement_length,y=response)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+
+Does complement length matter differently for different verbs?
+```{r}
+ggplot(pd, aes(x=complement_length,y=response,color=stim_type)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+
+
+
+
+
+
+

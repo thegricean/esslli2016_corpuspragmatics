@@ -1,0 +1,302 @@
+[
+  {
+    "id": "100957:13",
+    "complement": "there's, there's a different way of life and those families are really close",
+    "sentence": "and they've also see that there's, there's a different way of life and those families are really close.",
+    "stimType": "sense"
+  },
+  {
+    "id": "105078:8",
+    "complement": "it will be a very long time, probably, before i subscribe to any magazines at home",
+    "sentence": "i can see that it will be a very long time, probably, before i subscribe to any magazines at home.",
+    "stimType": "sense"
+  },
+  {
+    "id": "43219:23",
+    "complement": "it's a problem in the yard",
+    "sentence": "so i'll remember that if we see it's a problem in the yard.",
+    "stimType": "sense"
+  },
+  {
+    "id": "96908:52",
+    "complement": "they should stop her",
+    "sentence": "and, you know, if she wanted to go to combat, i do not see that they should stop her.",
+    "stimType": "sense"
+  },
+  {
+    "id": "107158:12",
+    "complement": "it would work for probably the majority of people",
+    "sentence": "but i can't see that it would work for probably the majority of people.",
+    "stimType": "sense"
+  },
+  {
+    "id": "128658:42",
+    "complement": "that, it, it, it can change it very quickly",
+    "sentence": "uh, i, i, i don't see that, it, it, it can change it very quickly.",
+    "stimType": "sense"
+  },
+  {
+    "id": "20216:150",
+    "complement": "they need to manage it a little bit better",
+    "sentence": "as far as the quality of the streets, the school systems, um, the hospital stuff that the government gives money to  um, the, you know, all the things that the government does like that. i, uh, i think they need to manage it a little bit better,",
+    "stimType": "control"
+  },
+  {
+    "id": "28783:5",
+    "complement": "they feel this is going to be an effortless sweatless way, to get in shape, without having to spend anything ",
+    "sentence": "i think they feel this is going to be an effortless sweatless way, to get in shape, without having to spend anything ",
+    "stimType": "control"
+  },
+  {
+    "id": "107167:117",
+    "complement": "if we could really budget",
+    "sentence": "and so, that, that's the difference there where sometimes like i know if we've had an especially bad month and we're just almost getting down to payday, then i think if we could really budget ",
+    "stimType": "control"
+  },
+  {
+    "id": "164471:95",
+    "complement": "they should be eliminated from society",
+    "sentence": "but, like i said, if, if someone is, is just pathologically going to murder people no matter what then i think they should be eliminated from society.",
+    "stimType": "control"
+  },
+  {
+    "id": "30149:26",
+    "complement": "we've gone that far mumblex, to pay it in ad-, you know, in advance before we spend it",
+    "sentence": "i've, i don't think we've gone that far mumblex, to pay it in ad-, you know, in advance before we spend it,",
+    "stimType": "control"
+  },
+  {
+    "id": "38260:12",
+    "complement": "i'd like it, if he traveled a lot",
+    "sentence": "but i don't think i'd like it, if he traveled a lot.",
+    "stimType": "control"
+  },
+  {
+    "id": "9106:30",
+    "complement": "those are bigger contributors than things like ai-, acid rain and some of the pollutants that come from, uh, industrial areas, factories and so on",
+    "sentence": "do you, uh, do you think that those are bigger contributors than things like ai-, acid rain and some of the pollutants that come from, uh, industrial areas, factories and so on.",
+    "stimType": "control"
+  },
+  {
+    "id": "24556:12",
+    "complement": "should be implemented in the work place",
+    "sentence": "well, do you think that should be implemented in the work place",
+    "stimType": "control"
+  },
+  {
+    "id": "151868:12",
+    "complement": "they will be in tents also",
+    "sentence": "and this year i believe they will be in tents also.",
+    "stimType": "control"
+  },
+  {
+    "id": "174116:29",
+    "complement": "they suggested that judges should be doing the sentencing",
+    "sentence": "i could, i couldn't believe they suggested that judges should be doing the sentencing.",
+    "stimType": "control"
+  },
+  {
+    "id": "57393:74",
+    "complement": "it was ",
+    "sentence": "like i bought, i bought the most beautiful swe-, uh, sweater from, uh, i believe it was ross dress for less.",
+    "stimType": "control"
+  },
+  {
+    "id": "12472:41",
+    "complement": "a majority of democrats may even have opposed it",
+    "sentence": "and if, if my memory serves me right, i believe a majority of democrats may even have opposed it,",
+    "stimType": "control"
+  },
+  {
+    "id": "19289:12",
+    "complement": "he, in this first pass around, you know, being the first one to really turn things around or attempt to is going to be allowed to get away with it either",
+    "sentence": "but i don't believe that he, in this first pass around, you know, being the first one to really turn things around or attempt to is going to be allowed to get away with it either.",
+    "stimType": "control"
+  },
+  {
+    "id": "5244:23",
+    "complement": "they know that i had done it in the colors, that they had decorated the nursery ",
+    "sentence": "and the lady said she couldn't believe that they know that i had done it in the colors, that they had decorated the nursery ",
+    "stimType": "control"
+  },
+  {
+    "id": "34213:7",
+    "complement": "there ought to be legislation guiding the, uh, buyer and the seller",
+    "sentence": "do you believe there ought to be legislation guiding the, uh, buyer and the seller.",
+    "stimType": "control"
+  },
+  {
+    "id": "34214:23",
+    "complement": "you ought to be able to sell your system, uh, because you own it",
+    "sentence": "and, or do you believe that you ought to be able to sell your system, uh, because you own it.",
+    "stimType": "control"
+  },
+  {
+    "id": "41851:71",
+    "complement": "i have to meet with a customer later during the day",
+    "sentence": "and, you know, like when i'm writing training material  i prefer to be more comfortable unless i know i have to meet with a customer later during the day.",
+    "stimType": "factive"
+  },
+  {
+    "id": "45539:36",
+    "complement": "they're not supposed to",
+    "sentence": "but they're going to do it anyway because they know they're not supposed to.",
+    "stimType": "factive"
+  },
+  {
+    "id": "75618:5",
+    "complement": "that's what, uh, what my family was talking when i picked up and moved to texas from indiana ",
+    "sentence": "i know that's what, uh, what my family was talking when i picked up and moved to texas from indiana ",
+    "stimType": "factive"
+  },
+  {
+    "id": "30792:17",
+    "complement": "they, there must have used, been computers or something for animation this day",
+    "sentence": "and i mean, i know they, there must have used, been computers or something for animation this day,",
+    "stimType": "factive"
+  },
+  {
+    "id": "93863:97",
+    "complement": "it's exercise",
+    "sentence": "i think that's the basic point of it, is i'm not, i, i don't enjoy it if i know that it's exercise,",
+    "stimType": "factive"
+  },
+  {
+    "id": "30079:84",
+    "complement": "we're going to have ",
+    "sentence": "well, we, uh, me and my wife, when, when we have like extra money that we know we're going to have  and we can put it in our budget  yeah, we'll, we'll use it.",
+    "stimType": "factive"
+  },
+  {
+    "id": "2746:43",
+    "complement": "are going to be dressed down",
+    "sentence": "if when they're meeting with the engineers who they know are going to be dressed down  if they come in, in, you know, a six hundred dollar three piece suit, it's going to make the people they're meeting with feel very uncomfortable, you know,",
+    "stimType": "factive"
+  },
+  {
+    "id": "2473:37",
+    "complement": "they're going to be there",
+    "sentence": "and, and, you know, if i know that they're going to be there, you know, you, i try to really watch it and like you say, you know, really dress up",
+    "stimType": "factive"
+  },
+  {
+    "id": "18725:12",
+    "complement": "they had a four eighty-six",
+    "sentence": "but i didn't know they had a four eighty-six just yet.",
+    "stimType": "factive"
+  },
+  {
+    "id": "163965:12",
+    "complement": "they had been watching me",
+    "sentence": "but i didn't know that they had been watching me",
+    "stimType": "factive"
+  },
+  {
+    "id": "45105:17",
+    "complement": "that, uh, a lot of people vote in primaries for that very reason",
+    "sentence": "uh, and i don't know that, uh, a lot of people vote in primaries for that very reason.",
+    "stimType": "factive"
+  },
+  {
+    "id": "124158:25",
+    "complement": "you're in a town home",
+    "sentence": "once you're inside, you don't know you're in a town home.",
+    "stimType": "factive"
+  },
+  {
+    "id": "5250:20",
+    "complement": "those are the colors we used ",
+    "sentence": "and she said how did you know those are the colors we used ",
+    "stimType": "factive"
+  },
+  {
+    "id": "89300:12",
+    "complement": "i don't follow performers",
+    "sentence": "um, do you know that i don't follow performers,",
+    "stimType": "factive"
+  },
+  {
+    "id": "24518:49",
+    "complement": "it's done fairly",
+    "sentence": "and that's probably my question is, how, how do you know it's done fairly ",
+    "stimType": "factive"
+  },
+  {
+    "id": "156675:7",
+    "complement": "it costs more to keep an inmate on death row than it does to send a kid to harvard",
+    "sentence": "do you know it costs more to keep an inmate on death row than it does to send a kid to harvard.",
+    "stimType": "factive"
+  },
+  {
+    "id": "7150:34",
+    "complement": "anything is going on",
+    "sentence": "so the time goes by, you know, before you realize anything is going on.",
+    "stimType": "factive"
+  },
+  {
+    "id": "145371:10",
+    "complement": "they were, they were abusing them and weren't going to get out of the hole",
+    "sentence": "and finally they realized that they were, they were abusing them and weren't going to get out of the hole",
+    "stimType": "factive"
+  },
+  {
+    "id": "36984:32",
+    "complement": "that, uh, uh, the bush administration isn't too happy with, with how they're handling their internal, uh, strife  you know, as far as diplomacy is concerned ",
+    "sentence": "well, i do, i do realize that, uh, uh, the bush administration isn't too happy with, with how they're handling their internal, uh, strife  you know, as far as diplomacy is concerned ",
+    "stimType": "factive"
+  },
+  {
+    "id": "1100:43",
+    "complement": "that's actually something that s culturally relative",
+    "sentence": "and it wasn't until i was thinking about it just now that i realized that's actually something that s culturally relative.",
+    "stimType": "factive"
+  },
+  {
+    "id": "166967:27",
+    "complement": "you're subject to paying, uh, income tax on something that you purchase mail order",
+    "sentence": "i mean what if you don't even realize that you're subject to paying, uh, income tax on something that you purchase mail order.",
+    "stimType": "factive"
+  },
+  {
+    "id": "113018:67",
+    "complement": "they're one short",
+    "sentence": "if they'll take a group of kids to the zoo or somewhere and then come back and not even count them and realize they're one short.",
+    "stimType": "factive"
+  },
+  {
+    "id": "169350:34",
+    "complement": "what they print is stuff that you probably knew already and the stuff that you want they're not printing because the average person doesn't need or want to know that much",
+    "sentence": "if you were deeply involved in it, then you immediately realize that what they print is stuff that you probably knew already and the stuff that you want they're not printing because the average person doesn't need or want to know that much.",
+    "stimType": "factive"
+  },
+  {
+    "id": "70930:73",
+    "complement": "we could never buy a house anyway no matter how much we saved ",
+    "sentence": "so, we virtually did that for about two years, which worked real well, and then moved from california where we realized we could never buy a house anyway no matter how much we saved  and moved to texas, bought a house immediately, you know, which  of course, is now devalued with the housing market,",
+    "stimType": "factive"
+  },
+  {
+    "id": "63941:12",
+    "complement": "was the biggest waste of water",
+    "sentence": "but i didn't realize that was the biggest waste of water.",
+    "stimType": "factive"
+  },
+  {
+    "id": "63955:12",
+    "complement": "our garbage isn't being decomposed ",
+    "sentence": "but i didn't realize that our garbage isn't being decomposed ",
+    "stimType": "factive"
+  },
+  {
+    "id": "100276:30",
+    "complement": "even just your small contribution",
+    "sentence": "and they said something about how you don't realize even just your small contribution ",
+    "stimType": "factive"
+  },
+  {
+    "id": "4431:14",
+    "complement": "they ha-, were going to reach out to people from, all over the country",
+    "sentence": "and, i didn't realize that they ha-, were going to reach out to people from, all over the country.",
+    "stimType": "factive"
+  }
+]
