@@ -1,4 +1,4 @@
-**UPDATE: I'll be giving a small, informal mixed-effects models tutorial on Wednesday at 1:15pm (i.e., during lunch break). We'll meet in the room that the course took place in (C2.01). Bring your laptop and make sure you have R and RStudio installed.**
+**UPDATE: if you can spare two minutes, please fill out [this course review](https://goo.gl/forms/9Im4UXVfY9ZpwOEi2)!** It may help me get a job :)
 
 This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.
 
@@ -42,6 +42,7 @@ Friday | Visualizing corpus data and data from mini-experiment; discussion of re
 - [TDTlite User Manual](https://github.com/thegricean/TDTlite/blob/master/docs/tdt_manual.pdf)
 - The [IMS Open Corpus Workbench](http://cwb.sourceforge.net/)
 - [Linguistic Data Consortium](https://www.ldc.upenn.edu/language-resources/data)
+- Lots of excellent resources for mixed effects modeling (which we ended up not getting to in class) can be found on Florian Jaeger's [HLPlab wiki](https://wiki.bcs.rochester.edu/HlpLab/)
 
 # Further readings
 
