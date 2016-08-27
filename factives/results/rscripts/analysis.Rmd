@@ -7,12 +7,15 @@ output: html_document
 
 ## Step 1: select stimuli for experiment
 
-Set your path here and load some packages:
+Set your path here and load some packages that are necessary for visualization (ggplot), tidy data handling (tidyr and dplyr), and mixed effects modeling (lme4:
 
 ```{r}  
 setwd("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/code_sheets/")
 source("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/results/rscripts/helpers.R")
 library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(lme4)
 theme_set(theme_bw())
 
 ```
@@ -102,7 +105,6 @@ nrow(sampledrealize)
 Combine all the sampled cases and write them to a stimulus file.
 ```{r}
 library(jsonlite)  
-library(dplyr)
 
 merged = bind_rows(sampledsee,sampledthink,sampledbelieve,sampledknow,sampledrealize) %>% 
   mutate(NoThatComplement=gsub("^that ","",Complement,perl=T)) %>%
@@ -116,6 +118,9 @@ write(writeOutJSON, "/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/f
 ```
 
 ## Step 2: analyze projection data
+
+The data analyzed in the following come from a  mini [projection judgment experiment](http://web.stanford.edu/~jdegen/cgi-bin/projection/projection.html) conducted as part of the ESSLLI 2016 course "Corpus Methods for Research in Pragmatics".
+
 ```{r}
 pd = data.frame()
 temp = list.files("/Users/titlis/cogsci/projects/esslli2016_corpuspragmatics/factives/results/data/projection_data")
@@ -198,6 +203,10 @@ Plot the overall distribution of responses.
 ggplot(pd, aes(x=response)) +
   geom_histogram()
 ```
+```{r}
+ggplot(pd, aes(x=response,fill=gender)) +
+  geom_histogram(position="dodge")
+```
 
 This histogram includes cognitive factives (know, realize), sense factives (see), and non-factivs (believe, think). Let's group histograms by these three groups. 
 ```{r,fig.height=5}
@@ -206,7 +215,7 @@ ggplot(pd, aes(x=response)) +
   facet_wrap(~stim_type) 
 ```
 
-Do the distributions vary by subject person?
+Do the distributions vary by whether the subject is 1st, 2nd, or 3rd person?
 ```{r}
 ggplot(pd, aes(x=response,fill=subjectperson)) +
   geom_histogram(position="dodge",binwidth=.1) +
@@ -216,15 +225,33 @@ ggplot(pd, aes(x=response,fill=subjectperson)) +
 Do the distributions vary by environment? Let's re-order the environment factor levels so "main clause" is in the top row.
 ```{r}
 pd$env = factor(x=pd$environment, levels=c("main","negation","conditional","question"))
+
 ggplot(pd, aes(x=response)) +
   geom_histogram(position="dodge") +
   facet_grid(environment~stim_type) 
+
 ggplot(pd, aes(x=response)) +
   geom_histogram(position="dodge") +
   facet_grid(env~stim_type) 
 ```
 
-Do the distributions vary both by environment and by subject person?
+How much variability or agreement is there for each item? 
+```{r}
+cog = droplevels(pd[pd$stim_type == "factive",])
+nrow(cog)
+
+ggplot(cog, aes(x=response,fill=verb)) +
+  geom_histogram() +
+  facet_wrap(~id)
+```
+
+Examples of sentences that are judged very differently by different participants:
+```{r}
+unique(pd[pd$id == "93863:97",]$sentence)
+unique(pd[pd$id == "755:168",]$sentence)
+```
+
+Do the distributions vary both by environment and by person?
 ```{r}
 ggplot(pd, aes(x=response,fill=subjectperson)) +
   geom_histogram(position="dodge") +
@@ -245,8 +272,8 @@ This is easier to read, but we lost a lot of information about variability in ea
 ```{r}
 agr = pd %>%
   group_by(environment,stim_type) %>%
-  summarise(mean_projection=mean(response),ymin=mean(response)-ci.low(response),ymax=mean(response)+ci.high(response))
-ggplot(agr, aes(x=environment,y=mean_projection)) +
+  summarise(mean_speakercommitment=mean(response),ymin=mean(response)-ci.low(response),ymax=mean(response)+ci.high(response))
+ggplot(agr, aes(x=environment,y=mean_speakercommitment)) +
   geom_bar(stat="identity",position="dodge",color="black",fill="gray60") +
   geom_errorbar(aes(ymin=ymin,ymax=ymax),width=.25) +
   facet_wrap(~stim_type)
@@ -291,7 +318,23 @@ ggplot(pd, aes(x=complement_length,y=response,color=stim_type)) +
   geom_smooth(method="lm")
 ```
 
+### Model your data
 
+We want to know for a variety of factors, whether they predict similarity ratings. Because the slider scale is continuous, we use linear models to address this question. Because there is likely to be random variability by participants and by items, we use mixed effects. Keep in mind that we don't have nearly enough data to run this analysis properly, and for the sake of the example we are only investigating the effect of two factors (environment and subject) instead of the full slew of factors that we have reason to believe might matter (including, e.g., intonation, frequency of the verb, whether or not the complementizer was omitted, etc).
+
+First we only look at the factives. We set the contrasts of the environment predictor so "main clause" is the reference level that all other environments are compared to. For the person predictor, "1st person" is the default reference level, and we'll leave it at that. We want to include random effects both by participants and by items. In this case, because every item necessaril¥ occurs with one environment and with one subject, we can't include by-item random slopes for environment and subject, so we only include random by-item intercepts. In contrast, each participant did see multiple environments and subjects, so we can include by-participant random slopes for both predictors in addition to random intercepts. Play with this and you will see, however, that the model does not converge if you include both random slopes. 
+```{r}
+factives = droplevels(pd[pd$stim_type == "factive",])
+contrasts(factives$environment) = cbind("conditional.v.main"=c(1,0,0,0),"negation.v.main"=c(0,0,1,0),"question.v.main"=c(0,0,0,1))
+m = lmer(response ~ environment + subjectperson + (1|id) + (1+environment|participant), data=factives)
+```
+
+The model summary tells us: the projection mean at the reference level of both predictors (i.e. main clauses with 1st person subjects) is .91. Compared to that baseline, ratings are lower (i.e. there is less projection) in conditionals. No other fixed effects have t values with absolute values that are big enough to suggest the presence of an effect.
+
+However, a glance at the correlation matrix tells us that there is a lot of colinearity between fixed effects (values > .4). This points to the effects being unreliable (remember, we have very little data!)
+```{r}
+summary(m)
+```
 
 
 

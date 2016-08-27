@@ -1,4 +1,4 @@
-**UPDATE: if you can spare two minutes, please fill out [this course review](https://goo.gl/forms/9Im4UXVfY9ZpwOEi2)!** It may help me get a job :)
+**UPDATE: if you can spare two minutes, please fill out [this course review](https://goo.gl/forms/9Im4UXVfY9ZpwOEi2)!** It will help improve the course in future iterations and might help me get a job :)
 
 This 5-day course is part of [ESSLLI 2016](http://esslli2016.unibz.it/). It aims to introduce students to the use of corpora of naturally occurring language for research in semantics/pragmatics.
 
@@ -55,8 +55,6 @@ de Marneffe, M.-C., Manning, C., and Potts, C. 2012. [Did it happen? The pragmat
 de Marneffe, M.-C. and Potts, C. 2014. [Developing linguistic theories using annotated corpora](http://web.stanford.edu/~cgpotts/papers/demarneffe-potts-lingann.pdf). To appear in Nancy Ide and James Pustejovsky, eds., The Handbook of Linguistic Annotation. Berlin: Springer.
 
 Gibson, E., Piantadosi, S. & Fedorenko, K. 2011. [Using Mechanichal Turk to obtain and analyze English acceptability judgments](https://github.com/thegricean/esslli2016_corpuspragmatics/blob/master/readings/gibson2011.pdf). Language and Linguistics Compass, 5(8): 509-524.
-
-Stefan Gries's book [Quantitative Corpus Linguistics with R](https://www.routledge.com/Quantitative-Corpus-Linguistics-with-R-A-Practical-Introduction-2nd-Edition/Gries/p/book/9781138816275)
 
 Potts, C. 2012. [Goal-driven answers in the Cards dialogue corpus](http://www.lingref.com/cpp/wccfl/30/abstract2800.html). In Nathan Arnett and Ryan Bennett, eds., Proceedings of the 30th West Coast Conference on Formal Linguistics, 1-20. Somerville, MA: Cascadilla Press. 
 
